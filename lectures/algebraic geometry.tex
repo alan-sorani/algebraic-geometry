@@ -81,6 +81,120 @@ Elad Tzorani.
 
 \mainmatter
 
+\chapter*{Goals of Algebraic Geometry}
+
+The main goals of algebraic geometry are the following.
+
+\begin{itemize}
+\item To classify algebraic varieties up to birational isomorphism.
+Either by enumeration of the varieties or classification by properties.
+\item
+Be able to tell whether two algebraic varieties are (birationally) isomorphic. This is done through different tools:
+\begin{itemize}
+\item Cohomology (related to the Hodge Conjecture).
+\item Vector bundles (related to K-theory).
+\item Algebraic Cycles (subvarieties).
+\item Coherent sheaves (derived category).
+\item Topology.
+\end{itemize}
+\end{itemize}
+
+\chapter{Sheaves}
+
+\section{Basic Definitions}
+
+Let $X \in \Top$.
+
+\begin{definition}
+Let $\Top_X$ be the category of open sets on $X$ with inclusions as morphisms.
+\end{definition}
+
+\begin{notation}
+Denote by $\Ab$ the category of abelian groups.
+\end{notation}
+
+\begin{definition}[Presheaf]
+A \stress{presheaf (of groups)} on $X$ is a contravariant functor
+\[F \colon \Top_X \to \Ab \text{.}\]
+\end{definition}
+
+Concretely, to give a presheaf we must give the following:
+\begin{enumerate}
+\item For each $U \subseteq X$ open, an abelian group $F\prs{U}$.
+\item For inclusion $V \rmono U$ of open sets, a group homomorphism $F_{U,V} \colon F\prs{U} \to F\prs{V}$.
+\end{enumerate}
+Under the conditions:
+\begin{enumerate}
+\item $F_{U,U} = \id_{F\prs{U}}$.
+\item If $W \rmono V \rmono U$ then $W \rmono U$ so the induced maps
+\[
+\begin{tikzcd}
+F\prs{U} \arrow[r] \arrow[rr, bend right = 30] & F\prs{V} \arrow[r] & F\prs{W}
+\end{tikzcd}
+\]
+commute.
+\end{enumerate}
+
+\begin{examples}
+\begin{enumerate}
+\item Let \[F\prs{U} \ceq \hom\prs{U, \RR} = \set{f \colon U \to \RR} \text{.}\]
+If $V \subseteq U$ are open,
+\begin{align*}
+F\prs{U} &\xrightarrow{F_{U,V}} F\prs{V} \\
+f &\mapsto \rest{f}{V} \hphantom{F\prs{V}} \text{.}
+\end{align*}
+
+This is actually also a presheaf of rings on $X$.
+
+\item \stress{The constant presheaf:} Let $A \in \Ab$ and define
+\[F\prs{U} \ceq A, \quad F_{U,V} = \id_A \text{.}\]
+
+\item Let $k$ be an algebraically closed field and $X$ an algebraic variety over $k$. We can think $X \subseteq \PP_k^n$.
+
+Define $\Oo_X\prs{U} \ceq \set{f \colon U \to k}{\text{$f$ is regular}}$.
+By ``regular'' we mean that for all $P \in U$ there's a neighbourhood $V \subseteq U$ of $P$ such that
+\[\rest{f}{V} = \frac{g}{h}\]
+with
+$g,h \in k\brs{x_0, \ldots, x_n}$.
+
+\item Let $X = \PP^1$.
+Then
+$\Oo_{\PP^1}\prs{\PP^1} = k$.
+Also
+$\Oo_{\PP^1} \prs{\PP^1 \setminus \set{0}} = \set{\frac{g\prs{x,y}}{h\prs{x,y}}}{\substack{g,h \in k\brs{x,y}\\\forall \prs{x,y} \neq \prs{0,1} \colon h\prs{x,y} \neq 0}} = \set{\frac{g\prs{x,y}}{x^{\deg\prs{g}}}}$.
+\end{enumerate}
+\end{examples}
+
+\begin{definition}[Section, Restriction]
+For any $F$ as above, $s \in F\prs{U}$ is called a \stress{section}.
+$F_{U,V}\prs{s}$ is written as $\rest{s}{V}$ and called \stress{restriction of $s$ to $V$}.
+\end{definition}
+
+\begin{definition}[Global Section]
+$F\prs{X} \ceq \Gamma\prs{X,F}$ is the \stress{global section of $F$}.
+\end{definition}
+
+\begin{remark}
+Why ``section''? Think about $\Oo_X\prs{U}$ and view the diagram
+\[
+\begin{tikzcd}
+U \times k \arrow[d,"\pi_U"] \arrow[r, hook] & X \times k \arrow[d,"\pi"] \\
+U \arrow[u, "\tilde{s}", bend left = 40] \arrow[r, hook] & X
+\end{tikzcd}
+\]
+and call $X \times k$ the \stress{trivial line bundle}.
+
+Take $s \in \Oo_X\prs{U}$ which induces a map
+\begin{align*}
+\tilde{s} \colon U &\to U \times k \\
+x &\mapsto \prs{X, s\prs{x}} \text{.}
+\end{align*}
+Then $\tilde{s}$ is a {section of $\pi$ over $U$}
+in the sense that $\pi_U \circ \tilde{s} = \id_U$.
+\end{remark}
+
+The idea of sheaves is that global sections are difficult to study topologically, but $F\prs{U}$ is easier to study for $U$ small, and computation on smaller $U$ can imply properties of $F\prs{U}$.
+
 
 
 \begin{comment}
