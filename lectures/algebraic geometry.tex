@@ -195,7 +195,125 @@ in the sense that $\pi_U \circ \tilde{s} = \id_U$.
 
 The idea of sheaves is that global sections are difficult to study topologically, but $F\prs{U}$ is easier to study for $U$ small, and computation on smaller $U$ can imply properties of $F\prs{U}$.
 
+\begin{definition}[Sheaf]
+A \stress{sheaf (over an abelian group)} $F$ is a presheaf over an abelian group such that the following holds.
+\begin{enumerate}
+\item If $U \subseteq X$ is open and $\set{V_i}_{i \in I}$ is an open cover of $U$, and if $s \in F\prs{U}$ such that $\forall i \in I \colon \rest{s}{V_i} = 0$ then $s = 0$.
+\item If $U \subseteq X$ is open and $\set{V_i}_{i \in I}$ is an open cover, and if \[\forall i \in I \exists s_i \in F\prs{V_i} \forall i,j \in I \colon \rest{s_i}{V_i \cap V_j} = \rest{s_j}{V_i \cap V_j}\]
+then
+\[\exists ! s \in F\prs{U} \forall i \in I \colon \rest{s}{V_i} = s_i \text{.}\]
+\end{enumerate}
+\end{definition}
 
+\begin{remark}
+\begin{enumerate}
+\item
+We could equivalently remove the uniqueness requirement in the second condition as it's implied by the first condition.
+\item
+With the uniqueness condition, the first condition is implied by the second.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}
+There is a categorical definition of a sheaf over any (not necessarily abelian) category, which might be defined later in these notes.
+\end{remark}
+
+\begin{examples}
+\begin{enumerate}
+\item $\Oo_x$ is a sheaf on $X$.
+\item $F\prs{U} = A \in \Ab$ is \stress{not} in general a sheaf unless $A = 0$.
+
+If $X$ has two connected components one can choose different elements of $A$ on two disjoint open sets, which agree on the (empty) intersection, but which we can't lift to the union.
+\item Give $A \in \Ab$ the discrete topology.
+Define $F_A\prs{U} \ceq \hom_{\mrm{cont}}\prs{U,A}$ the set of continuous functions $U \to A$.
+This is a sheaf.
+
+This is sometimes called the \stress{constant sheaf}, although it isn't actually constant.
+If $U \subseteq A$ is connected then $F_A\prs{U} \cong A$.
+\end{enumerate}
+\end{examples}
+
+\begin{definition}[Stalk of a Sheaf]
+Let $p \in X$ and $F$ a presheaf on $X$.
+The \stress{stalk of $F$ at $p$} is
+\[F_p \ceq \lim_{\substack{\longrightarrow \\ p \in U \subseteq X}} F\prs{U} = \quot{\coprod_{p \in U \subseteq X} F\prs{U}}{\substack{\prs{U, s \in F\prs{U}} \sim \prs{V, t \in F\prs{V}} \\ \text{if $\rest{s}{U \cap V} = \rest{t}{U \cap V}$} \hphantom{lala}\text{.}}} \]
+\end{definition}
+
+\begin{definition}[Morphism of Presheaves]
+Let $F,G$ be presheaves on $X$, a morphism $f \colon F \to G$ is a natural transformation.
+\end{definition}
+
+\begin{remark}
+Concretely, a morphism $f \colon F \to G$ of presheaves is a group homomorphism
+\[f_u \colon F\prs{U} \to G\prs{U}\]
+for every $U \subseteq X$ open such that the diagram
+\[
+\begin{tikzcd}
+F\prs{U} \arrow[r, "f_U"] \arrow[d, "\mrm{res}", swap] & G\prs{U}\arrow[d, "\mrm{res}"] \\
+F\prs{V} \arrow[r, "f_V", swap] & G\prs{V}
+\end{tikzcd}
+\]
+\end{remark}
+
+\begin{definition}[Isomorphism of Presheaves]
+A morphism of presheaves is an isomorphism if it has a two-sided inverse.
+\end{definition}
+
+\begin{notation}
+If $\phi \colon F \to G$ is a morphism there's a an induced map on stalks
+\begin{align*}
+\phi_p \colon F_p \to G_p
+\end{align*}
+for every $p \in X$ where we remind
+\begin{align*}
+F_p &= \lim_{\substack{\longrightarrow \\ p \in U}} F\prs{U} \\
+G_p &= \lim_{\substack{\longrightarrow \\ p \in U}} G\prs{U} \text{.}
+\end{align*}
+\end{notation}
+
+\begin{definition}[Morphism of Sheaves]
+A morphism of sheaves is a morphism between the respective presheaves. 
+\end{definition}
+
+\begin{remark}
+The above implies that presheaves over $X$ are a full subcategory of sheaves over $X$.
+\end{remark}
+
+\begin{proposition}
+Let $\phi \colon F \to G$ be a morphism of sheaves.
+Then $\phi$ is an isomorphism iff $\phi_p$ is an isomorphism for every $P \in X$.
+\end{proposition}
+
+\begin{remark}
+The above does \stress{not} say that $F \cong G$ iff $F_p \cong G_p$ for every $p \in X$.
+
+This isn't true.
+\end{remark}
+
+\begin{proof}
+\begin{description}
+\item[$\Rightarrow$:] This is straightforward.
+\item[$\Leftarrow$:]
+\begin{description}
+\item[Injectivity:]
+Let $U \subseteq X$ open and $s \in F\prs{U}$ such that $\phi\prs{s} = 0$. WTS (want to show) $s = 0$.
+
+Observe the following commutative diagram.
+\[
+\begin{tikzcd}
+F\prs{U} \arrow[r, "\phi"] \arrow[d] & G\prs{U} \arrow[d] \\
+F_p \arrow[r, swap, "\phi_p"] & G_p
+\end{tikzcd}
+\]
+$\phi_p\prs{s_p} = 0$ implies by injectivity $s_p = 0$. Then
+\[\exists p \in W_p \subseteq U \colon \rest{s}{W_p} = 0 \text{.}\]
+We can cover $U$ by these $\set{W_p}_{o \in U}$ is a cover over $U$ and by the first sheaf condition we get $s = 0$.
+\item[Surjectivity:]
+Next time.
+%TODO continue here
+\end{description}
+\end{description}
+\end{proof}
 
 \begin{comment}
 \begin{thebibliography}{2}
