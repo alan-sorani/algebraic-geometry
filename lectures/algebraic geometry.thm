@@ -1,32 +1,41 @@
-\contentsline {definitionx}{{Definition}{1.1.{1}}{}}{2}{theoremx.1.1.1}% 
-\contentsline {notation}{{Notation}{1.1.{2}}{}}{2}{theoremx.1.1.2}% 
-\contentsline {definitionx}{{Definition}{1.1.{3}}{Presheaf}}{2}{theoremx.1.1.3}% 
+\contentsline {definitionx}{{Definition}{1.0.{1}}{}}{2}{theoremx.1.0.1}% 
+\contentsline {notation}{{Notation}{1.0.{2}}{}}{2}{theoremx.1.0.2}% 
+\contentsline {definitionx}{{Definition}{1.0.{3}}{Presheaf}}{2}{theoremx.1.0.3}% 
 \contentsline {exms_raw}{{Examples}{1}{}}{2}{exms_raw.1}% 
-\contentsline {definitionx}{{Definition}{1.1.{4}}{Section, Restriction}}{3}{theoremx.1.1.4}% 
-\contentsline {definitionx}{{Definition}{1.1.{5}}{Global Section}}{3}{theoremx.1.1.5}% 
-\contentsline {remark}{{Remark}{1.1.{6}}{}}{3}{theoremx.1.1.6}% 
-\contentsline {definitionx}{{Definition}{1.1.{7}}{Sheaf}}{3}{theoremx.1.1.7}% 
-\contentsline {remark}{{Remark}{1.1.{8}}{}}{3}{theoremx.1.1.8}% 
-\contentsline {remark}{{Remark}{1.1.{9}}{}}{3}{theoremx.1.1.9}% 
+\contentsline {definitionx}{{Definition}{1.0.{4}}{Section, Restriction}}{3}{theoremx.1.0.4}% 
+\contentsline {definitionx}{{Definition}{1.0.{5}}{Global Section}}{3}{theoremx.1.0.5}% 
+\contentsline {remark}{{Remark}{1.0.{6}}{}}{3}{theoremx.1.0.6}% 
+\contentsline {definitionx}{{Definition}{1.0.{7}}{Sheaf}}{3}{theoremx.1.0.7}% 
+\contentsline {remark}{{Remark}{1.0.{8}}{}}{3}{theoremx.1.0.8}% 
+\contentsline {remark}{{Remark}{1.0.{9}}{}}{3}{theoremx.1.0.9}% 
 \contentsline {exms_raw}{{Examples}{2}{}}{3}{exms_raw.2}% 
-\contentsline {definitionx}{{Definition}{1.1.{10}}{Stalk of a Sheaf}}{4}{theoremx.1.1.10}% 
-\contentsline {definitionx}{{Definition}{1.1.{11}}{Morphism of Presheaves}}{4}{theoremx.1.1.11}% 
-\contentsline {remark}{{Remark}{1.1.{12}}{}}{4}{theoremx.1.1.12}% 
-\contentsline {definitionx}{{Definition}{1.1.{13}}{Isomorphism of Presheaves}}{4}{theoremx.1.1.13}% 
-\contentsline {notation}{{Notation}{1.1.{14}}{}}{4}{theoremx.1.1.14}% 
-\contentsline {definitionx}{{Definition}{1.1.{15}}{Morphism of Sheaves}}{4}{theoremx.1.1.15}% 
-\contentsline {remark}{{Remark}{1.1.{16}}{}}{4}{theoremx.1.1.16}% 
-\contentsline {proposition}{{Proposition}{1.1.{17}}{}}{4}{theoremx.1.1.17}% 
-\contentsline {remark}{{Remark}{1.1.{18}}{}}{4}{theoremx.1.1.18}% 
+\contentsline {definitionx}{{Definition}{1.0.{10}}{Stalk of a Sheaf}}{3}{theoremx.1.0.10}% 
+\contentsline {definitionx}{{Definition}{1.0.{11}}{Morphism of Presheaves}}{4}{theoremx.1.0.11}% 
+\contentsline {remark}{{Remark}{1.0.{12}}{}}{4}{theoremx.1.0.12}% 
+\contentsline {definitionx}{{Definition}{1.0.{13}}{Isomorphism of Presheaves}}{4}{theoremx.1.0.13}% 
+\contentsline {notation}{{Notation}{1.0.{14}}{}}{4}{theoremx.1.0.14}% 
+\contentsline {definitionx}{{Definition}{1.0.{15}}{Morphism of Sheaves}}{4}{theoremx.1.0.15}% 
+\contentsline {remark}{{Remark}{1.0.{16}}{}}{4}{theoremx.1.0.16}% 
+\contentsline {proposition}{{Proposition}{1.0.{17}}{}}{4}{theoremx.1.0.17}% 
+\contentsline {remark}{{Remark}{1.0.{18}}{}}{4}{theoremx.1.0.18}% 
 \contentsline {proof}{{Proof}{1}{}}{4}{proof.1}% 
-\contentsline {definitionx}{{Definition}{1.1.{19}}{}}{5}{theoremx.1.1.19}% 
-\contentsline {proposition}{{Proposition}{1.1.{20}}{Sheafification}}{5}{theoremx.1.1.20}% 
-\contentsline {proof}{{Proof}{2}{}}{6}{proof.2}% 
-\contentsline {proposition}{{Proposition}{1.1.{21}}{}}{6}{theoremx.1.1.21}% 
-\contentsline {definitionx}{{Definition}{1.1.{22}}{Subsheaf}}{6}{theoremx.1.1.22}% 
-\contentsline {definitionx}{{Definition}{1.1.{23}}{$\coker , \im $}}{6}{theoremx.1.1.23}% 
-\contentsline {remark}{{Remark}{1.1.{24}}{}}{6}{theoremx.1.1.24}% 
-\contentsline {definitionx}{{Definition}{1.1.{25}}{Injective Morphism}}{6}{theoremx.1.1.25}% 
-\contentsline {definitionx}{{Definition}{1.1.{26}}{Surjective Morphism}}{6}{theoremx.1.1.26}% 
-\contentsline {remark}{{Remark}{1.1.{27}}{}}{6}{theoremx.1.1.27}% 
-\contentsline {definitionx}{{Definition}{1.1.{28}}{Exact Sequence}}{6}{theoremx.1.1.28}% 
+\contentsline {definitionx}{{Definition}{1.0.{19}}{}}{5}{theoremx.1.0.19}% 
+\contentsline {proposition}{{Proposition}{1.0.{20}}{Sheafification}}{5}{theoremx.1.0.20}% 
+\contentsline {proof}{{Proof}{2}{}}{5}{proof.2}% 
+\contentsline {proposition}{{Proposition}{1.0.{21}}{}}{6}{theoremx.1.0.21}% 
+\contentsline {definitionx}{{Definition}{1.0.{22}}{Subsheaf}}{6}{theoremx.1.0.22}% 
+\contentsline {definitionx}{{Definition}{1.0.{23}}{$\coker , \im $}}{6}{theoremx.1.0.23}% 
+\contentsline {remark}{{Remark}{1.0.{24}}{}}{6}{theoremx.1.0.24}% 
+\contentsline {definitionx}{{Definition}{1.0.{25}}{Injective Morphism}}{6}{theoremx.1.0.25}% 
+\contentsline {definitionx}{{Definition}{1.0.{26}}{Surjective Morphism}}{6}{theoremx.1.0.26}% 
+\contentsline {remark}{{Remark}{1.0.{27}}{}}{6}{theoremx.1.0.27}% 
+\contentsline {definitionx}{{Definition}{1.0.{28}}{Exact Sequence}}{6}{theoremx.1.0.28}% 
+\contentsline {definitionx}{{Definition}{1.0.{29}}{Pushward and Inverse Image Sheaves}}{6}{theoremx.1.0.29}% 
+\contentsline {remark}{{Remark}{1.0.{30}}{}}{7}{theoremx.1.0.30}% 
+\contentsline {exercise}{{Exercise}{1}{}}{7}{exercise.1}% 
+\contentsline {notation}{{Notation}{1.0.{31}}{}}{7}{theoremx.1.0.31}% 
+\contentsline {exercise}{{Exercise}{2}{}}{7}{exercise.2}% 
+\contentsline {lemma}{{Lemma}{2.2.{1}}{}}{8}{theoremx.2.2.1}% 
+\contentsline {proof}{{Proof}{3}{}}{8}{proof.3}% 
+\contentsline {remark}{{Remark}{2.2.{2}}{}}{8}{theoremx.2.2.2}% 
+\contentsline {definitionx}{{Definition}{2.2.{3}}{Zariski Topology}}{8}{theoremx.2.2.3}% 

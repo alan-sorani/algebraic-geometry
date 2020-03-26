@@ -101,8 +101,6 @@ Be able to tell whether two algebraic varieties are (birationally) isomorphic. T
 
 \chapter{Sheaves}
 
-\section{Basic Definitions}
-
 Let $X \in \Top$.
 
 \begin{definition}
@@ -455,6 +453,88 @@ is \stress{exact} if $\ker \phi_i = \im \phi_{i-1}$.
 If $F' \subseteq F$, define $\quot{F'}{F}$ to be the sheafification of the presheaf
 \[U \mapsto \quot{F'\prs{U}}{F\prs{U}} \text{.}\]
 \end{definition}
+
+\begin{definition}[Pushward and Inverse Image Sheaves]
+Let $f \colon X \to Y$ be a continuous map of topological spaces.
+
+Let $F$ be a sheaf on $X$, we define for $V \subseteq Y$ open
+\[\prs{f_* F}\prs{V} \ceq F\prs{f^{-1}\prs{V}} \text{.}\]
+Then $f_* F$ is a sheaf on $Y$
+and is called the \stress{pushforward of $F$}.
+
+If $f \colon X \to Y$ and $G$ a sheaf on $Y$. We define for $U \subseteq X$ open
+\[\prs{f^{-1}G}\prs{U} = \prs{\lim_{\substack{\longrightarrow \\ V \supseteq f\prs{U}}} G\prs{V}}^+ \text{.}\]
+Then $f^{-1}G$ is a sheaf and called the \stress{inverse image sheaf}.
+\end{definition}
+
+\begin{remark}
+$f_*$ and $f^{-1}$ are functors between sheaves on $X$ and $Y$.
+\end{remark}
+
+\begin{exercise}
+$f_*$ and $f^{-1}$ are adjoint functors.
+I.e.
+\[\hom_X\prs{f^{-1}G, F} \cong \hom_Y\prs{G, f_* F}\]
+naturally.
+\end{exercise}
+
+\begin{notation}
+Let $Z \subseteq X$ and $i \colon Z \rmono X$ the inclusion map. For a sheaf $F$ on $X$ we write $\rest{F}{Z}$ instead of $i^{-1} F$.
+\end{notation}
+
+\begin{exercise}
+Assume $F\prs{A} = A \in \Ab$ and that $\theta U \subseteq X$.
+Let
+\[F_A\prs{U} \ceq \hom_{\mrm{cont}}\prs{U,A} \text{,}\]
+we get
+$F_A \cong F^+$.
+\end{exercise}
+
+\chapter{Schemes}
+
+\section{Motivation} 
+
+We notice that in in classical algebraic geometry the interesting object of an algebraic variety is its ring of functions $R$. It induces a map on the points which are $\mspec\prs{R}$.
+
+There is however the problem that this lacks functoriality. Images and preimages of maximal ideals aren't necessarily maximal.
+For this one looks at the space of prime ideals $\spec\prs{R}$. 
+If we look at $R = \CC\brs{x}$ we get $\spec R = \AA^1 \cup \set{\prs{0}}$. We don't have a natural way to add $\prs{0}$ to the topology of $\AA^1$. In higher dimension this is even more problematic.
+However, these points have important meaning which we want to understand through the notion of schemes.
+
+\section{Schemes - Basic Definitions}
+
+Let $A \in \Ring$, we define $\spec A$ as the space of prime ideals of $A$.
+
+Given $\aa \ideal A$ we define
+\[V\prs{\aa} = \set{\pp \in \spec\prs{A}}{\pp \supseteq \aa} \text{.}\] 
+This is in bijection with $\spec\prs{\quot{A}{\aa}}$.
+
+\begin{lemma}
+\begin{enumerate}
+\item Let $\aa_1, \aa_2 \ideal A$. Then
+\[V\prs{\aa_1 \aa_2} = V\prs{\aa_1} \cup V\prs{\aa_2} \text{.}\]
+\item If $\set{\aa_i}_{i \in I}$ are ideals of $A$ then
+\[V\prs{\sum_{i \in I} \aa_i} = \bigcap_{i \in I} V\prs{\aa_i} \text{.}\]
+\item If $\aa_1, \aa_2 \ideal A$ then
+\[V\prs{\aa_1} \subseteq V\prs{\aa_2} \iff \sqrt{\aa_1} \supseteq \sqrt{\aa_2} \text{.}\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+See Hartshorne.
+\end{proof}
+
+\begin{remark}
+$V\prs{A} = \ns$ and $V\prs{\prs{0}} = \spec A$.
+\end{remark}
+
+\begin{definition}[Zariski Topology]
+We give $\spec A$ the topology defined by the closed sets $V\prs{\aa}$ for $\aa \ideal A$.
+
+This is called the \stress{Zariski topology}.
+\end{definition}
+
+
 
 \backmatter
 \end{document}
