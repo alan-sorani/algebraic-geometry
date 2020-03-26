@@ -281,7 +281,7 @@ The above implies that presheaves over $X$ are a full subcategory of sheaves ove
 
 \begin{proposition}
 Let $\phi \colon F \to G$ be a morphism of sheaves.
-Then $\phi$ is an isomorphism iff $\phi_p$ is an isomorphism for every $P \in X$.
+Then $\phi$ is an isomorphism iff $\phi_p$ is an isomorphism for every $p \in X$.
 \end{proposition}
 
 \begin{remark}
@@ -309,11 +309,152 @@ $\phi_p\prs{s_p} = 0$ implies by injectivity $s_p = 0$. Then
 \[\exists p \in W_p \subseteq U \colon \rest{s}{W_p} = 0 \text{.}\]
 We can cover $U$ by these $\set{W_p}_{o \in U}$ is a cover over $U$ and by the first sheaf condition we get $s = 0$.
 \item[Surjectivity:]
-Next time.
-%TODO continue here
+%26.3.2020
+We want to show that $\phi_U \colon F\prs{U} \to G\prs{U}$ is surjective for every $U \subseteq X$ open.
+
+Let $s \in G\prs{U}$, we consider the following commutative diagram for every $p \in X$.
+\[
+\begin{tikzcd}
+F\prs{U} \arrow[r,"\phi"] \arrow[d] & G\prs{U} \arrow[d] \\
+F_p \arrow[r, "\phi_p"] & G_p
+\end{tikzcd}
+\]
+Take $s \in G\prs{U}$ from which we get $s_p \in G_p$.
+Then by surjectivity of $\phi_p$ there's $\tilde{t}_p \in F_p$ such that $\phi_p\prs{\tilde{t}_p} = s_p$.
+Then there's $p \in W_p \subseteq U$ and $t_p \in F\prs{W_p}$ such that
+$\phi_{W_p}\prs{t_p} = \rest{s}{W_p}$.
+We want to glue the $t_p$ to get $t \in F\prs{U}$.
+
+Check that the overlaps agree by showing that for $P,Q \in U$, $t_P, t_Q$ agree.
+Indeed,
+\begin{align*}
+\phi\prs{\rest{t_P}{W_P \cap W_Q}} &= \rest{\phi\prs{t_P}}{W_P \cap W_Q}
+\\&=
+\rest{\prs{\rest{s}{W_P}}}{W_P \cap W_Q}
+\\&= \brs{\text{same computation}}
+\\&= \phi\prs{\rest{t_Q}{W_P \cap W_Q}}
+\end{align*}
+and by injectivity we get
+\[\forall P,Q \in U \colon \rest{t_P}{W_P \cap W_Q} = \rest{t_Q}{W_P \cap W_Q} \text{.}\]
+
+Since $F$ is a sheaf, there's $t \in F\prs{U}$ such that $\rest{t}{W_p} = t_p$.
+
+We want to check that $\phi\prs{t} = s \in G\prs{U}$. Because $G$ is a sheaf we can check this locally.
+\begin{align*}
+\rest{\phi\prs{t}}{W_p} &= \phi\prs{\rest{t}{W_p}}
+\\&=
+\phi\prs{t_p}
+\\&=
+\rest{s}{W_p}
+\end{align*}
+Then by uniqueness of the restrictions $\phi\prs{t} = s$, so $\phi$ is indeed surjective.
 \end{description}
 \end{description}
 \end{proof}
+
+\begin{definition}
+Let $\phi \colon F \to G$ a morphism of presheaves of abelian groups. Define the following presheaves.
+\begin{align*}
+\prs{\ker \phi}{U} &\ceq \ker\prs{\phi_U} \subseteq F\prs{U} \\
+\prs{\widetilde{\coker}\phi}\prs{U} &\ceq \coker\prs{\phi_U} = \quot{G\prs{U}}{\phi\prs{F\prs{U}}} \\
+\prs{\widetilde{\im}\phi}\prs{U} &= \im\prs{\phi_U} \subseteq G\prs{U}
+\end{align*}
+$\ker \phi$ is a sheaf if $F,G$ are. The other two aren't necessarily sheaves in this case.
+\end{definition}
+
+In order to define cokernel and image which are sheaves, we produce a functor from presheaves to sheaves, which is adjoint to the forgetful functor.
+
+\begin{proposition}[Sheafification]
+Let $F$ be a presheaf on $X$, there's a sheaf $F^+$ and a morphism $\theta \colon F \to F^+$ such that the following holds.
+
+If $G$ is a sheaf and $F \to G$ is a morphism of presheaves, there's a unique morphism $\psi \colon F^+ \to G$ such that the following diagram commutes.
+\[
+\begin{tikzcd}
+F \arrow[rr] \arrow[dr, "\theta", swap] & & G \\
+& F^+ \arrow[ru, "\psi", swap, dotted] &
+\end{tikzcd}
+\]
+
+Moreover, $\prs{F^+, \theta}$ is unique up to unique isomorphism. I.e if $F \xrightarrow{\theta'} F'^+$ is another such object, there's a unique isomorphism such that the following commutes.
+\[
+\begin{tikzcd}
+F \arrow[r, "\theta'"] \arrow[dr, "\theta"] & \prs{F'}^+ \arrow[d, "\sim" labl4, dotted] \\
+& F^+
+\end{tikzcd}
+\]
+\end{proposition}
+
+\begin{proof}
+Define $F^+$ as follows. For $U \subseteq X$ open let
+\[F^+\prs{U} = \set{s \colon U \to \prod_{p \in U} F_p}{\substack{\forall p \in U \colon s\prs{p} \in F_p \\ \forall p \in U \exists p \in V \subseteq U \exists t \in F\prs{U} \forall Q \in V \colon t_Q = s\prs{Q} \in F_Q}} \text{.}\]
+Check that this is a sheaf.
+
+Define
+\begin{align*}
+\theta \colon F &\to F^+ \\
+F\prs{U} &\to F^+\prs{U} \\
+s \in F\prs{U} &\mapsto \brs{\substack{U \to \coprod F_p \\
+p \mapsto s_p}} \text{.}
+\end{align*}
+Check that $\prs{F^+, \theta}$ satisfies the universal property.
+\end{proof}
+
+We have the following properties.
+
+\begin{proposition}
+\begin{enumerate}
+\item If $F$ is a sheaf, $\theta \colon F \to F^+$ is an isomorphism.
+
+This follows from the universal property.
+\item If $p \in X$ then $F_p \cong \prs{F^+}_p$ via $\theta$.
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}[Subsheaf]
+Let $F$ a sheaf, a \stress{subsheaf} $F'$ is a sheaf such that the diagram
+\[
+\begin{tikzcd}
+F'\prs{U} \arrow[r, hook] \arrow[d] & F\prs{U} \arrow[d] \\
+F'\prs{V} \arrow[r,hook] & F\prs{V}
+\end{tikzcd}
+\]
+commutes for all $V \subseteq U$.
+\end{definition}
+
+\begin{definition}[$\coker, \im$]
+Let $\phi \colon F \to G$ a morphism of sheaves then $\ker \phi$ is already a sheaf.
+
+Define
+\begin{align*}
+\im \phi &\ceq \prs{\widetilde{\im} \phi}^+ \\
+\coker\phi &\ceq \prs{\widetilde{\coker} \phi}^+ \text{.}
+\end{align*}
+\end{definition}
+
+\begin{remark}
+By the universal property $\im \phi \rmono G$ is an injection.
+\end{remark}
+
+\begin{definition}[Injective Morphism]
+We say $\phi$ is \stress{injective} if $\ker \phi = 0$, i.e. if $\phi_U$ is injective for every $U$.
+\end{definition}
+
+\begin{definition}[Surjective Morphism]
+We say $\phi$ is \stress{surjective} if $\im \phi = G$.
+\end{definition}
+
+\begin{remark}
+Surjectivity is \stress{not} equivalent to $\phi_U$ being surjective for all $U$.
+\end{remark}
+
+\begin{definition}[Exact Sequence]
+Say a sequence of sheaves
+\[\cdots \rightarrow F_{-2} \xrightarrow{\phi_{-2}} F_{-1} \xrightarrow{\phi_{-1}} F_0 \xrightarrow{\phi_0} F_1 \xrightarrow{\phi_1} \cdots\]
+is \stress{exact} if $\ker \phi_i = \im \phi_{i-1}$.
+
+If $F' \subseteq F$, define $\quot{F'}{F}$ to be the sheafification of the presheaf
+\[U \mapsto \quot{F'\prs{U}}{F\prs{U}} \text{.}\]
+\end{definition}
 
 \backmatter
 \end{document}
