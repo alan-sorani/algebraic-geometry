@@ -534,7 +534,36 @@ We give $\spec A$ the topology defined by the closed sets $V\prs{\aa}$ for $\aa 
 This is called the \stress{Zariski topology}.
 \end{definition}
 
+\begin{definition}
+Define a sheaf of rings $\Oo = \Oo_A$ on $\spec A$ as follows.
+For $U \subseteq \spec A$ open we define
+\[\Oo\prs{U} \ceq \set{s \colon U \to \coprod_{\pp \in U} A_\pp}{\substack{\forall \pp \in U \colon s\prs{\pp} \in A_{\pp} \\ \forall \pp \in U \exists \pp \in V \subseteq U \exists a,f \in A \prs{f \notin \pp \, \wedge \, \forall \qq \in V \colon s\prs{\qq} = \frac{a}{\pp} \in A_\qq}}} \text{.}\]
+\end{definition}
 
+\begin{proposition}
+\begin{itemize}
+\item $\Oo\prs{U}$ is a commutative unital ring.
+\item If $V \subseteq U$, the map
+\begin{align*}
+\Oo\prs{U} &\to \Oo\prs{V} \\
+s &\mapsto \rest{s}{V}
+\end{align*}
+is a homomorphism of rings.
+\item $\Oo$ is a sheaf on $\spec A$.
+\end{itemize}
+\end{proposition}
+
+\begin{definition}
+If $f \in A$, set \[D\prs{f} \ceq \spec A \setminus V\prs{f} = \set{\pp \in \spec A}{f \notin \pp} \text{.}\]
+\end{definition}
+
+\begin{lemma}
+The sets $D\prs{F}$ are a basis for the Zariski topology on $\spec A$.
+\end{lemma}
+
+\begin{proof}
+In Hartshorne.
+\end{proof}
 
 \backmatter
 \end{document}

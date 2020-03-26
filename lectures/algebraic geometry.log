@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.25)  26 MAR 2020 11:34
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.25)  26 MAR 2020 11:43
 entering extended mode
 **"./algebraic geometry.tex"
 ("algebraic geometry.tex"
@@ -2066,22 +2066,22 @@ Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input
 line 513.
 [8
 
-]
+] [9]
 \tf@thm=\write7
 \openout7 = `"algebraic geometry.thm"'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 540.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 540.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 561.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 561.
  ("algebraic geometry.aux")
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 540.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 540.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 561.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 561.
 Package rerunfilecheck Info: File `"algebraic geometry".out' has not changed.
 (rerunfilecheck)             Checksum: .
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 540.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 561.
  ) 
 Here is how much of TeX's memory you used:
  42851 strings out of 427242
@@ -2092,4 +2092,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  68i,18n,111p,968b,1194s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on algebraic geometry.pdf (12 pages).
+Output written on algebraic geometry.pdf (13 pages).
