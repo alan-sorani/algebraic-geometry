@@ -711,7 +711,79 @@ $\psi$ is surjective.
 \end{enumerate}
 \end{proof}
 
+\begin{remark}
+There's some kind of analogy between $\spec \ZZ$ and $\spec \CC\brs{x} = \AA^1$.
+\end{remark}
 
+\begin{definition}[Ringed Space]
+A \stress{ringed space} is a pair $\prs{X, \Oo_X}$ where $X \in \Top$ and $\Oo_X \in \Sh\prs{X, \Ring}$ is a sheaf of rings on $X$.
+\end{definition}
+
+\begin{definition}[Morphism of Ringed Spaces]
+A morphism $\prs{X, \Oo_X} \to \prs{Y, \Oo_Y}$ of ringed spaces is a pair $\prs{f, f^{\#}}$ where $f \colon X \to Y$ is a continuous map and $f^{\#} \colon \Oo_Y \to f_* \Oo_X$ is a morphism of sheaves on $Y$.
+\end{definition}
+
+\begin{definition}[Locally Ringed Space]
+A ringed space $\prs{X, \Oo_X}$ is a \stress{locally ringed space} if for all $o \in \X$ the stalk $\Oo_{X,p}$ of $p$ is a local ring.
+\end{definition}
+
+\begin{definition}[Local Homomorphism]
+Let $R,S \in \Ring$ both local with respective maximal ideals $\mm_R, \mm_S$.
+
+A ring homomorphism
+\[\phi \colon R \to S\]
+is \stress{local} if $\phi^{-1}\prs{\mm_S} = \mm_R$.
+\end{definition}
+
+\begin{definition}[Morphism of Locally Ringed Spaces]
+A \stress{morphism of locally ringed spaces} is a morphism
+\[\prs{X, \Oo_X} \to \prs{Y, \Oo_Y}\]
+is a pair $\prs{f,f^{\#}}$ such that for all $p \in X$,
+\[f_p^{\#} \colon \Oo_{Y, f\prs{p}} = \lim_{\substack{\longrightarrow \\ V \ni f\prs{p}}} \Oo_Y\prs{V} \to \lim_{\substack{\longrightarrow \\ V \ni f\prs{p}}} \Oo_X\prs{f^{-1} V}
+\to \lim_{p \in U} \Oo_X\prs{U} \to \Oo_{X, p}\]
+is a local homomorphism.
+\end{definition}
+
+\begin{remark}
+$\prs{f, f^{\sharp}}$ is an isomorphism iff $f$ is an homeomorphism and $f^{\#}$ is an isomorphism of sheaves.
+\end{remark}
+
+\begin{example}
+To understand what $\prs{f_* \Oo_X}_{f\prs{p}}$ is, consider $f\prs{x} = x^2$ where
+\[f \colon \spec \CC\brs{t} = \AA^1 \xrightarrow{f} \AA^1 \text{.}\]
+Look at the stalk of $f_* \Oo_{\AA^1}$ at the points $x=0$ and $x=1$.
+At $x=1$ the map $f$ isn't a local homeomorphism, and indeed the stalk isn't a local ring. It has two maximal ideals. At $x=0$ the stalk is in fact a local ring.
+\end{example}
+
+\begin{proposition}
+\begin{enumerate}
+\item Let $A \in \Ring$. Then $\prs{\spec A, \Oo_A}$ is a locally ringed space.
+\item If $\phi \colon A \to B$ is a homeomorphism of rings, then $\phi$ induces a morphism \[\prs{f,f^{\#}} \colon \prs{\spec B, \Oo_B} \to \prs{\spec A, \Oo_A}\]
+of locally ringed spaces.
+\item Any morphism
+\[\prs{\spec B, \Oo_B} \to \prs{\spec A, \Oo_A}\]
+of locally ringed spaces is induced from such a ring homomorphism.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item This is true since $\Oo_{A, \pp} \cong A_\pp$ which is a local ring.
+\item Given $\phi \colon A \to B$ we define
+\begin{align*}
+f \colon \spec B &\to \spec A \\
+\pp &\mapsto \phi^{-1}\prs{\pp} \text{.}
+\end{align*}
+For every $\aa \ideal A$ we have \[f^{-1}\prs{V\prs{\aa}} = V\prs{\phi\prs{\aa}} \text{.}\]
+Hence $f$ is continuous.
+
+For $V \subseteq \spec\prs{A}$ open define
+\begin{align*}
+f_V^{\#} \colon \Oo_A\prs{V} &\to \Oo_B\prs{f^{-1}\prs{V}} \\
+\set{s \colon V \to \coprod_{\qq \in V} A_\qq} &\mapsto \brs{\pp \mapsto }
+\end{align*}
+\end{enumerate}
+\end{proof}
 
 \backmatter
 \end{document}
