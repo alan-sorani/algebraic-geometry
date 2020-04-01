@@ -780,10 +780,35 @@ Hence $f$ is continuous.
 For $V \subseteq \spec\prs{A}$ open define
 \begin{align*}
 f_V^{\#} \colon \Oo_A\prs{V} &\to \Oo_B\prs{f^{-1}\prs{V}} \\
-\set{s \colon V \to \coprod_{\qq \in V} A_\qq} &\mapsto \brs{\pp \mapsto }
+\set{s \colon V \to \coprod_{\qq \in V} A_\qq} &\mapsto \brs{\pp \mapsto \phi_p \prs{s\prs{f\prs{p}}}}
 \end{align*}
+where $\phi_\pp \colon A_{\phi^{-1}\prs{\pp}} \to B_\pp$ and by construction $\phi_\pp$ is a local homeomorphism.
+The induced map $f_p^{\#}$ is $\phi_p$, so $\prs{f,f^{\#}}$ is a morphism of locally ringed spaces.
+
+\item Given $\prs{f,f^{\#}} \colon \spec B \to \spec A$ where $f^{\#} \colon \Oo_a \to f_* \Oo_B$ we get
+\[\phi \colon \Oo_A \prs{\spec A} \to \prs{f_* \Oo_B} \prs{\spec A} \text{.}\]
+We get a diagram
+\[
+\begin{tikzcd}
+\phi \colon \Oo_A \prs{\spec A} \arrow[r,"\phi"] \arrow[d] & \prs{f_* \Oo_B} \prs{\spec A} \arrow[d] \\
+A_{f\prs{\pp}} \arrow[r, "f_\pp^{\#}", swap] & B_\pp
+\end{tikzcd}
+\]
+where $f_\pp^{\#}$ is local. So
+$\phi^{-1}\prs{\pp} = f\prs{\pp}$.
+
+Now the end of the proof follows from the following exercise.
+
+\begin{exercise}
+If $\psi_1, \psi_2 \colon F \to G$ are morphisms of sheaves on $X$ and $\psi_{1,p} = \psi_{2,p}$ for all $p \in X$ then $\psi_1 = \psi_2$.
+\end{exercise}
+
+To solve this use sheaf hom as defined in the exercises in Hartshorne.
+It follows that $\prs{f, f^{\#}}$ agrees with the map on locally ringed spaces induced by $\phi \colon A \to B$.
 \end{enumerate}
 \end{proof}
+
+
 
 \backmatter
 \end{document}
