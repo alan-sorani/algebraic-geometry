@@ -566,7 +566,7 @@ The sets $D\prs{F}$ are a basis for the Zariski topology on $\spec A$.
 In Hartshorne.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{proposition:spec_properties}
 \begin{enumerate}
 \item If $\pp \in \spec A$ then the stalk $\Oo_\pp$ of $\Oo$ at $\pp$ is isomorphic to $A_\pp$.
 \item $\Oo\prs{\Dd\prs{f}} \cong A_f$.
@@ -574,6 +574,144 @@ In Hartshorne.
 \[\Gamma\prs{\spec A, \Oo} = \Oo_A\prs{\spec A} = \Oo\prs{D\prs{1}} \cong A_1 \cong A \text{.}\]
 \end{enumerate}
 \end{proposition}
+
+%1/4/2020
+
+We want to give intuition for the sheaf $\Oo_A$ on $\spec\prs{A}$. Let $U \subseteq X$ open and $s \in \Oo_A\prs{U}$.
+Then
+\[s \colon U \to \coprod_{\pp \in U} A_\pp \text{.}\]
+$A_\pp$ is a local ring with maximal ideal $\pp A_\pp$. Then
+\[k_\pp \ceq \quot{A_\pp}{\pp A_\pp}\]
+is a field called \stress{the residue field of $A$ at $\pp$}.
+
+From $s \in \Oo\prs{U}$ we get a map
+\[\tilde{s} \colon U \to \coprod_{\pp \in U} A_\pp \to \coprod_{\pp \in U} k_\pp \text{.}\]
+
+\begin{example}
+Let $A = \ZZ$, we have \[\spec A = \set{\prs{0}, \prs{2}, \prs{3}, \prs{5}, \prs{7}, \ldots}\text{.}\]
+Let \[U = D\prs{15} = \spec \ZZ \setminus V\prs{15} \spec\prs \ZZ \setminus \set{\prs{3}, \prs{5}} \text{.}\]
+
+The above proposition says
+\[\Oo_{\spec \ZZ}\prs{U} = \ZZ \brs{\frac{1}{15}} \text{.}\]
+Take $\frac{11}{5} \in \ZZ\brs{\frac{1}{5}}$.
+Thinking of maps of the form $\tilde{s}$ we have maps
+\[\prs{p} \mapsto \frac{11}{5} \in \ZZ_\pp \mapsto \frac{11}{5} \in \FF_\pp\]
+and
+\[\prs{0} \mapsto \frac{11}{5} \in \QQ \mapsto \frac{11}{5} \in \QQ \text{.}\]
+\end{example}
+
+\begin{proof}[\ref{proposition:spec_properties}]
+\begin{enumerate}
+\item Define
+\begin{align*}
+\Oo_\pp &\xrightarrow{\phi} A_\pp \\
+\prs{\pp \in U,s} &\mapsto s\prs{\pp} \text{.}
+\end{align*}
+\begin{description}
+\item[Surjectivity:]
+Let $\frac{a}{f} \in A_\pp$, so $a \in A$ and $f \notin \pp$.
+Take $U = D\prs{f}$. Then
+\begin{align*}
+s \colon D\prs{f} &\to \coprod_{\qq \in D\prs{f}} A_\qq \\
+\qq &\mapsto \frac{a}{f} \in A_\qq \text{.}
+\end{align*}
+Then
+$\phi\prs{s} = \frac{a}{f}$.
+\item[Injectivity:]
+Suppose $\pp \in U \subseteq \spec A$ and $s,t \in \Oo\prs{U}$ such that $\phi\prs{s} = \phi\prs{t}$. So $s\prs{\pp} = t\prs{\pp}$.
+
+By definition of $\Oo$ we can shrink $U$ so that
+\[s = \frac{a}{p}, \quad t = \frac{b}{g}\]
+where $f,g \notin \pp$.
+
+Then
+$\frac{a}{f} = \frac{b}{g} \in A_\pp$
+so
+\[\exists h \notin \pp \colon h\prs{ga - fb} = 0 \in A \text{.}\]
+
+Let \[V = D\prs{f} \cap D\prs{g} \cap D\prs{h}\]
+then $\forall \qq \in V \subseteq U \colon S_\qq = t_\qq$.
+So
+\[\rest{s}{V} = \rest{t}{V}\]
+so $s = t \in \Oo_\pp$.
+\end{description}
+\item
+Let
+\begin{align*}
+\psi \colon A_f &\to \Oo\prs{D\prs{f}} \\
+\frac{a}{f} &\mapsto \fcases{D\prs{f} \to \prod_{\qq \ni t} A_\qq \\ \qq \mapsto \frac{a}{f^n} \in \AA_q} \text{.}
+\end{align*}
+Then $\psi$ is
+\begin{description}
+\item[Injective:]
+$\psi\prs{\frac{a}{f^n}} = \psi\prs{\frac{b}{f^m}}$
+hence
+$\frac{a}{f^n} = \frac{b}{f^m}$ in $A_\qq$.
+Hence
+\[\exists h_\pp \notin \pp \colon h_\pp \prs{f^m a - f^n b} = 0 \text{.}\]
+
+Set $\aa = \ann\prs{f^m a - f^n b}$.
+So $h_\pp \in \aa \setminus \pp$ hence $\aa \nsubseteq \pp$.
+Hence $V\prs{\aa} \cap D\prs{f} = \ns$.
+Hence $V\prs{\aa} \subseteq V\prs{f}$
+hence $f \in \sqrt{\aa}$ so $f^+ \in \aa$ so $f^+ \prs{f^m a - f^n b} = 0$ so
+$\frac{a}{f^n} = \frac{b}{f^m}$ in $A_f$ so $\psi$ is injective.
+\item[Surjective:]
+We have
+\begin{align*}
+\psi \colon A_f &\to \Oo\prs{D\prs{f}} \\
+\frac{a}{f^n} &\mapsto \brs{\pp \mapsto \frac{a}{f^n}} \text{.}
+\end{align*}
+We notice two big facts.
+\begin{fact}
+\[D\prs{f} \subseteq D\prs{g} \iff \exists n \in \NN_+ \colon f^n \in \prs{g}\]
+(Exercise / See Hartshorne or Atiyah McDonald).
+\end{fact}
+
+\begin{fact}
+If $D\prs{f} \subseteq \bigcup_{i \in I} D\prs{f_i}$ then $D\prs{f} \subseteq \bigcup_{j \in J} D\prs{f_j}$ for some $J \subseteq I$ finite.
+\end{fact}
+
+Let $s \in \Oo\prs{D\prs{f}}$, we cover $D\prs{f}$ by $\set{V_i}_{i \in I}$ such that $\rest{s}{V_i} = \frac{a_i}{g_i}$ and $\forall \pp \in V_i \colon g_i \notin \pp$.
+So $V_i \subseteq D\prs{g_i}$.
+
+Check, using the first fact above, that we may assume that $V_i = D\prs{g_i}$.
+Moreover, by the second fact we may assume $I$ is finite.
+
+Note that
+\[\frac{a_i}{g_i} = \frac{a_j}{g_j}\]
+on $D\prs{g_i} \cap D\prs{g_j} = D\prs{g_i g_j}$, i.e. the equality holds in $A_{g_i g_j}$.
+There's $n_{i,j}$ such that
+\[\prs{g_i g_j}^{n_{i,j}} \prs{g_j a_i - g_i a_j} = 0\]
+and because the index set is finite we may assume $n_{i,j} = n$ for all $i,j$.
+
+Then
+\begin{align*}
+g_j^{n+1} \prs{g_i^n A_i} - g_i^{n+1} \prs{g_j^n a_j} = 0 \text{.}
+\end{align*}
+Replace $g_i$ by $g_i^{n+1}$ and $a_i$ by $g_1^n a_i$.
+We use $D\prs{g_i} = D\prs{g_i^{n+1}}$.
+Then
+\[\forall i,j \colon g_j a_i = g_i a_j \text{.}\]
+
+Since $D\prs{g_i}$ cover $D\prs{f}$.
+So $f \in \sqrt{\sum_i \prs{g_i}}$ so there's $m \in \NN$ such that $f^m = \sum_i b_i g_i$ for some $b_i \in A$.
+Let $a = \sum_i b_i a_i$.
+Then
+\begin{align*}
+g_j a = \sum_i b_i a_i g_j = \sum_i b_i g_i a_j = f^n a_j \text{.}
+\end{align*}
+Hence
+\[\frac{a}{f^m} = \frac{a_i}{g_j}\]
+on $D\prs{g_j}$ hence
+\[\psi\prs{\frac{a}{f^m}} = s\]
+so
+$\psi$ is surjective.
+\end{description}
+\end{enumerate}
+\end{proof}
+
+
 
 \backmatter
 \end{document}

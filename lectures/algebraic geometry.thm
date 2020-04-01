@@ -45,3 +45,7 @@
 \contentsline {lemma}{{Lemma}{2.2.{7}}{}}{9}{theoremx.2.2.7}% 
 \contentsline {proof}{{Proof}{4}{}}{9}{proof.4}% 
 \contentsline {proposition}{{Proposition}{2.2.{8}}{}}{9}{theoremx.2.2.8}% 
+\contentsline {example}{{Example}{1}{}}{9}{example.1}% 
+\contentsline {proof}{{Proof}{5}{\ref {proposition:spec_properties}}}{9}{proof.5}% 
+\contentsline {fact}{{Fact}{2.2.{9}}{}}{10}{theoremx.2.2.9}% 
+\contentsline {fact}{{Fact}{2.2.{10}}{}}{10}{theoremx.2.2.10}% 
