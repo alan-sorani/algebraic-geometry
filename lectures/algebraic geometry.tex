@@ -1005,8 +1005,68 @@ The set $D_+\prs{f}$ is open in $\Proj S$.
 \end{remark}
 
 \begin{proposition}
-
+Denote $\Oo = \Oo_{\Proj S}$.
+\begin{enumerate}
+\item For any $\pp \in \Proj S$ the stalk $\Oo_\pp$ of $\Oo$ at $\Pp$ is isomorphic to $S_{\prs{\pp}}$.
+\item
+The sets $D_+\prs{f}$ for $f \in S_+$ cover $\Proj S$.
+\item
+\[\prs{D_+\prs{f}, \rest{\Oo}{D_+\prs{f}}} \cong \spec S_{\prs{f}}\]
+as locally-ringed spaces where $S_{\prs{f}}$ is defined to be the subring of $S_f$ of degree $0$ elements.
+\end{enumerate}
 \end{proposition}
+
+\begin{proof}
+See Hartshorne.
+\end{proof}
+
+\begin{corollary}[Projective Space over $A$]
+$\Proj S$ is a scheme.
+\end{corollary}
+
+\begin{definition}
+For any $A \in \Ring$ we can define
+\[\PP_A^n \ceq \Proj A\brs{x_0, \ldots, x_n}\]
+with the grading described in the proposition.
+
+This is called \stress{the projective space over $A$}.
+\end{definition}
+
+\begin{definition}[Scheme over a Scheme]
+Let $S$ be a scheme. \stress{A scheme over $S$} is a scheme $X$ together with a map $X \to S$.
+\end{definition}
+
+\begin{definition}[]
+Let $X \xrightarrow{\pi_1} S, Y \xrightarrow{\pi_2} S$ be schemes over $S$.
+A morphism between $\pi_1, \pi_2$ is $\phi \colon X \to Y$ such that
+the diagram
+\[
+\begin{tikzcd}
+X \arrow[rr, "\phi"] \arrow[dr, "\pi_1", swap] & & Y \arrow[dl, "\pi_2"] \\
+& S & 
+\end{tikzcd}
+\]
+commutes.
+\end{definition}
+
+\begin{notation}
+Denote by $\quot{\Sch}{S}$ for the category of schemes over a scheme $S$.
+
+Let $A \in \Ring$, we denote by $\quot{\Sch}{A}$ for the category of schemes over $\spec A$.
+\end{notation}
+
+\begin{proposition}
+Let $k \in \catname{Field}$ such that $k = \bar{k}$. Then there's a fully-faithful functor $t \colon \quot{\catname{Var}}{k} \to \quot{\Sch}{k}$ from the category of varieties over $k$ to $\quot{\Sch}{k}$.
+
+For $V \in \quot{\catname{Var}}{k}$, $V$ is homeomorphic to the set of closed points of $t\prs{V}$ and the sheaf $\Oo_V$ of regular functions on $V$ is isomorphic to $\rest{\Oo_{t\prs{V}}}{V}$.
+\end{proposition}
+
+\begin{proof}
+Define
+\[t\prs{V} = \set{\text{non-empty irreducible closed subsets of $V$}} \text{.}\]
+
+See Hartshorne for details.
+\end{proof}
 
 \backmatter
 \end{document}
