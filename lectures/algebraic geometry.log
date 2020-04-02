@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.25)  2 APR 2020 11:26
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.10.25)  2 APR 2020 11:30
 entering extended mode
 **"./algebraic geometry.tex"
 ("algebraic geometry.tex"
@@ -2122,18 +2122,19 @@ ut line 807.
 \tf@thm=\write7
 \openout7 = `"algebraic geometry.thm"'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 994.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 994.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1012.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1012.
  ("algebraic geometry.aux")
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 994.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 994.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1012.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1012.
+
 Package rerunfilecheck Info: File `"algebraic geometry".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 994.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1012.
  ) 
 Here is how much of TeX's memory you used:
  42977 strings out of 427242
