@@ -30,7 +30,7 @@
 \contentsline {definitionx}{{Definition}{1.0.{26}}{Surjective Morphism}}{6}{theoremx.1.0.26}% 
 \contentsline {remark}{{Remark}{1.0.{27}}{}}{6}{theoremx.1.0.27}% 
 \contentsline {definitionx}{{Definition}{1.0.{28}}{Exact Sequence}}{6}{theoremx.1.0.28}% 
-\contentsline {definitionx}{{Definition}{1.0.{29}}{Pushward and Inverse Image Sheaves}}{6}{theoremx.1.0.29}% 
+\contentsline {definitionx}{{Definition}{1.0.{29}}{Pushforward and Inverse Image Sheaves}}{6}{theoremx.1.0.29}% 
 \contentsline {remark}{{Remark}{1.0.{30}}{}}{7}{theoremx.1.0.30}% 
 \contentsline {exercise}{{Exercise}{1}{}}{7}{exercise.1}% 
 \contentsline {notation}{{Notation}{1.0.{31}}{}}{7}{theoremx.1.0.31}% 
@@ -60,3 +60,15 @@
 \contentsline {proposition}{{Proposition}{2.2.{18}}{}}{12}{theoremx.2.2.18}% 
 \contentsline {proof}{{Proof}{6}{}}{12}{proof.6}% 
 \contentsline {exercise}{{Exercise}{3}{}}{12}{exercise.3}% 
+\contentsline {solution}{{Solution}{1}{}}{12}{solution.1}% 
+\contentsline {definitionx}{{Definition}{2.2.{19}}{Affine Scheme}}{13}{theoremx.2.2.19}% 
+\contentsline {definitionx}{{Definition}{2.2.{20}}{Scheme}}{13}{theoremx.2.2.20}% 
+\contentsline {definitionx}{{Definition}{2.2.{21}}{Structure Sheaf}}{13}{theoremx.2.2.21}% 
+\contentsline {remark}{{Remark}{2.2.{22}}{}}{13}{theoremx.2.2.22}% 
+\contentsline {exms_raw}{{Examples}{3}{}}{13}{exms_raw.3}% 
+\contentsline {remark}{{Remark}{2.2.{23}}{}}{14}{theoremx.2.2.23}% 
+\contentsline {definitionx}{{Definition}{2.2.{24}}{Disjoint Union of Schemes}}{14}{theoremx.2.2.24}% 
+\contentsline {definitionx}{{Definition}{2.2.{25}}{Gluing of Schemes}}{14}{theoremx.2.2.25}% 
+\contentsline {remark}{{Remark}{2.2.{26}}{}}{14}{theoremx.2.2.26}% 
+\contentsline {example}{{Example}{3}{}}{14}{example.3}% 
+\contentsline {example}{{Example}{4}{}}{14}{example.4}% 

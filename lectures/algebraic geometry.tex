@@ -455,7 +455,7 @@ If $F' \subseteq F$, define $\quot{F'}{F}$ to be the sheafification of the presh
 \[U \mapsto \quot{F'\prs{U}}{F\prs{U}} \text{.}\]
 \end{definition}
 
-\begin{definition}[Pushward and Inverse Image Sheaves]
+\begin{definition}[Pushforward and Inverse Image Sheaves]
 Let $f \colon X \to Y$ be a continuous map of topological spaces.
 
 Let $F$ be a sheaf on $X$, we define for $V \subseteq Y$ open
@@ -803,12 +803,137 @@ Now the end of the proof follows from the following exercise.
 If $\psi_1, \psi_2 \colon F \to G$ are morphisms of sheaves on $X$ and $\psi_{1,p} = \psi_{2,p}$ for all $p \in X$ then $\psi_1 = \psi_2$.
 \end{exercise}
 
-To solve this use sheaf hom as defined in the exercises in Hartshorne.
-It follows that $\prs{f, f^{\#}}$ agrees with the map on locally ringed spaces induced by $\phi \colon A \to B$.
+\begin{solution}
+Consider $\psi = \psi_1 - \psi_2$.
+Then the induced morphisms $\psi_P$ on stalks are zero.
+Consider
+\[0 \to \ker \psi \to F \xrightarrow{\psi} G \text{.}\]
+We get for every $P$ the diagram
+\[0 \to \prs{\ker \psi}_P \to F_P \xrightarrow{\psi_P = 0} G_P \text{.}\]
+Then the middle map is an isomorphism for every $P$, so the inclusion
+$\ker \psi \to F$ is an isomorphism, so $F = \ker \psi$ from which $\psi = 0$.
+\end{solution}
+
+\stress{Warning:} Let $F,G$ be sheaves on $X$ and consider \[\underline{\hom}\prs{F,G}\prs{U} = \hom\prs{\rest{F}{U}, \rest{G}{U}} \text{.}\]
+We have that $\psi$ is a global section of this hom sheaf which is zero on every stalk. There's a map
+\[\abhom\prs{F,G}_P \to \hom\prs{F_P, G_P} \text{.}\]
+This however isn't generally an isomorphism.
 \end{enumerate}
 \end{proof}
 
+%2/4/2020
 
+\begin{definition}[Affine Scheme]
+An \stress{affine scheme} is a locally ringed space $X, \Oo_X$ which is isomorphic to $\prs{\spec_A, \Oo_A}$ for some $A \in \Ring$.
+\end{definition}
+
+\begin{definition}[Scheme]
+A \stress{scheme} is a locally ringed space $\prs{X, \Oo_X}$ with an open cover $\prs{U_i}_{i \in I}$ such that $\prs{U_i, \rest{\Oo_X}{U_i}}$ is an affine scheme for all $i \in I$.
+\end{definition}
+
+\begin{definition}[Structure Sheaf]
+$\Oo_X$ is the \stress{structure sheaf} of the scheme $X$.
+\end{definition}
+
+\begin{remark}
+We usually write $X$ instead of $\prs{X, \Oo_X}$ and remember there is an associated structure sheaf $\Oo_X$.
+\end{remark}
+
+\begin{examples}
+\begin{enumerate}
+\item
+If $k \in \catname{Field}$ then $\spec k = \set{\prs{0}}$ is a scheme
+with $\Oo_{\spec k} \prs{\spec k} = k$.
+\item If $k \in \catname{Field}$ then
+$R \ceq \quot{k\brs{\eps}}{\eps^2} = k + k \eps$ is a local ring with maximal ideal $\mm \ceq \prs{\eps} = k \eps$.
+Then 
+\[X \ceq \spec \prs{\quot{k\brs{\eps}}{\eps^2}} = \set{\mm}\]
+is a scheme $\Oo_X\prs{X} = R$.
+
+The map
+\begin{align*}
+R &\to k \\
+\eps &\mapsto 0
+\end{align*}
+induces a morphism of schemes
+\[\spec k \rmono \spec \quot{k\brs{\eps}}{\eps^2} \text{.}\]
+This is an homeomorphism but not an isomorphism of schemes.
+
+The intuition is that $\spec k$ is a point and $X$ is a fattened point, as it's in some sense given by looking at both the point an its tangent space.
+
+\item Let $p$ a prime number and let \[X \ceq \spec \ZZ_{\prs{p}} = \set{\frac{a}{b}}{\substack{a,b \in \ZZ \\ b \notin p \ZZ}}\text{.}\]
+Then $X = \set{p \ZZ_{\prs{p}}, \prs{0}}$.
+The point $p \ZZ_{\prs{p}}$ is closed point (in the case of affine schemes this is equivalent to maximality).
+The point $\prs{0}$ is open and dense (it's not closed, and $\abs{X} = 2$).
+\begin{itemize}
+\item
+We have
+\[\Oo_X\prs{\prs{0}} \cong \Oo_{X, p \ZZ_{\prs{p}}} \cong \Oo_X\prs{D\prs{p}} \cong \prs{\ZZ_{\prs{p}}}_p \cong \QQ \text{.}\]
+\item
+The residue field at $p \ZZ_{\prs{p}}$ is $\FF_p$.
+
+The residue field at $\prs{0}$ is $\QQ$.
+\end{itemize}
+\item
+Define $\AA_k^1 \ceq \spec k\brs{x}$.
+Then
+\[\AA^1_k = \set{\prs{0}} \cup \set{\prs{f\prs{x}}}{\text{$f$ is irreducible}} \text{.}\]
+
+The ideals coming from irreducible polynomials are maximal ideals, hence closed points.
+The point $\prs{0}$ is dense in $\AA_k^1$ and is called \stress{the generic point}.
+
+If $k = \bar{k}$ then the closed points are in bijection with the field $k$ as they come from polynomials of the form $x - \alpha$.
+Otherwise, the closed points are in bijection with monic irreducible polynomials, which we can think of as the $\gal\prs{\quot{\bar{k}}{k}}$ orbits of elements in $k$.
+
+\item 
+Let $\AA_k^n = \spec\prs{k\brs{x_1, \ldots, x_n}}$.
+If $k = \bar{k}$ we have
+\[\AA_k^2 = \set{\prs{0}} \cup \set{\prs{x_1 - t_1, x_2 - t_2}}{t_1, t_2 \in k} \cup \set{\prs{f\prs{x,y}}}{\text{$f$ is irreducible}} \cup \ldots \text{.}\]
+The point $\prs{0}$ is the generic point which is here not dense or open. The points in the second set are closed and the points in the third set are with closure containing all closed points $\prs{t_1, t_2}$ such that $f\prs{t_1, t_2} = 0$.
+\end{enumerate}
+\end{examples}
+
+\begin{remark}
+If $F$ is a sheaf on $X$ then $F\prs{ns} = 0$.
+
+It follows from covering the empty set by the empty open cover and using the sheaf axioms.
+\end{remark}
+
+\begin{definition}[Disjoint Union of Schemes]
+Let $X,Y$ be schemes, and let $i_X \colon X \rmono X \amalg Y$ and $i_Y \colon Y \rmono X \amalg Y$ we define $X \amalg Y$ to be $\prs{X \amalg Y, \prs{i_{X}}_*\Oo_X \oplus \prs{i_Y}_* \Oo_Y}$.
+\end{definition}
+
+\begin{definition}[Gluing of Schemes]
+Let $X,Y$ be schemes and let $U \subseteq X, V \subseteq Y$ be open sets.
+Suppose
+\[\phi \colon \prs{U, \rest{\Oo_X}{U}} \riso \prs{V, \rest{\Oo_Y}{V}}\]
+is an isomorphism of locally ringed spaces.
+Suppose $i \colon X \rmono Z$ and $j \colon Y \rmono Z$ be topological inclusions.
+
+We define the \stress{gluing} $Z = \quot{X \amalg Y}{\phi}$
+to be
+\[\prs{\quot{X \amalg Y}{\substack{\forall u \in U \\ u \sim \phi\prs{u}}}, \Oo_Z}\]
+where for $W \subseteq Z$,
+\[\Oo_Z\prs{W} = \set{\prs{s, s'}}{\substack{s \in \Oo_X\prs{i^{-1} W} \\ s' \in \Oo_Y\prs{j^{-1} W}} \text{ such that $\phi\prs{\rest{s}{U \cap i^{-1} W}} = \rest{s'}{V \cap j^{-1} W}$}} \text{.}\]
+This is a scheme with scheme maps $X \rmono Z$ and $Y \rmono Z$.
+\end{definition}
+
+\begin{remark}
+One can interpret the gluing as a special case of a pushout in the category of schemes.
+\end{remark}
+
+\begin{example}
+We can glue $\AA^1$ to itself along $\AA^1 \setminus \set{0}$ using the identity on $\AA^1 \setminus \set{0}$ as the gluing map $\phi$.
+
+We get a line with a double point at $0$.
+\end{example}
+
+\begin{example}
+We can glue $\AA_k^1$ to $\AA_k^1$ by identifying $\AA^1 \setminus \set{0}$ with \[\AA^1 \setminus \set{0} = \spec k\brs{x, \frac{1}{x}} \subseteq \AA^1_k\]
+under $x \mapsto \frac{1}{x}$.
+
+We get $\PP_k^1$.
+\end{example}
 
 \backmatter
 \end{document}
