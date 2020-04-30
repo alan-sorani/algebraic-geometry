@@ -1,13 +1,5 @@
 \documentclass[10pt,a4paper,twoside,openany,hidelinks]{book}
 
-%JAPANESE
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures={NoCommon, NoDiscretionary, NoHistoric, NoRequired, NoContextual}}
-\setmainfont{CMU Serif}
-\usepackage{xeCJK}
-\xeCJKsetup{CJKmath=true}
-\setCJKmainfont{MS Mincho} % or some other Japanese font
-
 \usepackage{maths}
 \usepackage{stylish}
 
@@ -1067,6 +1059,708 @@ Define
 
 See Hartshorne for details.
 \end{proof}
+
+\begin{example}
+Let $f\prs{x} = x^5 + 1$. Then the zero locus of $y^2 - f\prs{x}$ in $\AA_\CC^2$ is not compact in some sense.
+We can homogenise this to
+$$\brs{0:1:0} \in \set{z^3 y^2 - x^5 - z^5 = 0} \subseteq \PP_\CC^2 \text{.}$$
+The first curve is smooth, but the second one isn't smooth of $\brs{0:1:0}$.
+However, this can be embedded into a smooth curve.
+
+We have
+$$\spec\prs{\quot{\CC\brs{x,y}}{y^2 - f\prs{x}}} \subseteq \spec \CC\prs{x,y} = \AA_\CC^2 \text{.}$$
+Then
+$$\Proj\prs{\quot{\CC\brs{x,y,z}}{y^2 - z^6 f\prs{\frac{x}{z}}}} \text{,}$$
+by considering $\deg\prs{x} = \deg\prs{z} = 1$ and $\deg\prs{y} = 3$ can be seen as a graded algebra.
+We have $$\spec\prs{\quot{\CC\brs{x,y}}{y^2 - f\prs{x}}} = D\prs{Z}$$ inside this, and that this projective variety is smooth.
+\end{example}
+
+\subsection{Properties of Schemes:}
+
+Let $X \in \Sch$.
+
+\begin{definition}[Connected Sceheme]
+$X$ is \stress{connected} if its underlying topological space is connected.
+\end{definition}
+
+\begin{definition}[Irreducible Sceheme]
+$X$ is \stress{irreducible} if its underlying topological space is irreducible.
+\end{definition}
+
+\begin{definition}[Reduced Scheme]
+$X$ is \stress{reduced} if $\OOO_X\prs{U}$ is reduced for every open $U \subseteq X$.
+\end{definition}
+
+\begin{exercise}
+$X$ is reduced iff $\OOO_{X,P}$ is reduced for all $P \in X$.
+\end{exercise}
+
+\begin{definition}[Integral Scheme]
+$X$ is \stress{integral} if $\OOO_X\prs{U}$ is an integral domain for every open $U \subseteq X$.
+\end{definition}
+
+\begin{example}
+Let $X = \spec A$ for some $A \in \catname{Ring}$.
+\begin{itemize}
+    \item $X$ is irreducible iff $\nil\prs{A}$ is prime.
+    \item $X$ is reduced iff $\nil A = 0$.
+    \item $X$ is integral iff $A$ is an integral domain.
+\end{itemize}
+\end{example}
+
+\begin{proposition}
+A scheme $X$ is integral iff it's reduced and irreducible.
+\end{proposition}
+
+\begin{proof}
+Assume $X$ is integral. Then there are no nilpotent elements so $X$ is reduced.
+Assume towards a contradiction $X$ isn't irreducible, there are $U_1, U_2 \subseteq X$ open such that $U_1 \cap U_2 = \ns$.
+Now, $\OOO_X\prs{U_1 \cap U_2} = \OOO_X\prs{\ns} = 0$, so
+$$\OOO_X\prs{U_1 \cup U_2} = \OOO_X\prs{U_1} \oplus \OOO_X\prs{U_2}$$
+which isn't an integral domain.
+Hence $X$ is irreducible.
+
+Conversely, assume $X$ is reduced and irreducible. Let $U \subseteq X$ open and $f,g \in \OOO_X\prs{U}$ nonzero such that $fg = 0$.
+Let $$Y \ceq \set{x \in U}{f_x \in \mm_x \ideal \OOO_{X,x}}$$
+and
+$$Z \ceq \set{x \in U}{g_x \in \mm_x \ideal \OOO_{X,x}} \text{.}$$
+These are closed in $U$, and $Y \cup Z = U$.
+Now, $X$ is irreducible so $U$ is irreducible so $Y = U$ or $Z = U$ and assume WLOS $Y=U$.
+If $Y = \spec A \subseteq U$ then $\rest{f}{V} \in \nil_A = 0$ so $f = 0$. Otherwise, we vcover $Y$ by affines and get the same result.
+Now $\OOO_X\prs{U}$ is an integral domain.
+\end{proof}
+
+\begin{definition}[Locally Noetherian Scheme]
+$X$ is \stress{locally Noetherian} if it has an over cover $\set{\spec A_i}_{i \in I}$ with $A_i$ noetherian for every $i \in I$.
+\end{definition}
+
+\begin{definition}[Quasi-Compact Scheme]
+$X$ is \stress{quasi-compact} if any open cover of $X$ has a finite subcover.
+\end{definition}
+
+\begin{definition}[Noetherian Scheme]
+$X$ is \stress{Noetherian} if it's locally Noetherian and quasi-compact.
+\end{definition}
+
+\begin{remark}
+$X$ is Noetherian iff there's a finite cover of $X$ by affine schemes $\spec A_i$ with $A_i$ Noetherian.
+\end{remark}
+
+\begin{lemma}
+Let $\spec A$ and $\spec B$ be open affine schemes in $X$. Then $\spec A \cap \spec B$ is covered by open sets that are distinguished (i.e. of the form $D\prs{f}$) in both $\spec A$ and $\spec B$.
+\end{lemma}
+
+\begin{proof}
+Let $P \in \spec A \cap \spec B$. $\spec A \cap \spec B$ is open in $A$ so there's $f \in A$ such that $$P \in \spec A_f \subseteq \spec A \cap \spec B\text{.}$$
+Now in $\spec A_f$ which is open in $\spec B$ we can get $\spec B_g$ similarly.
+
+Denote by $g'$ the map of $g$ in $\OOO_X\prs{\spec A_f}$ and write $g' = \frac{\tilde{g}}{f^k}$.
+Then $$\spec B_g \subseteq \spec A_f \setminus \set{Q}{g' \in Q} = \spec\prs{A_f}_{g'} = \spec \prs{A_{f \tilde{g}}} \text{.}$$
+\end{proof}
+
+\begin{lemma}[Affine Locality Test]
+Let $\star$ be a property of affine subschemes of $X$ such that the following holds.
+\begin{enumerate}
+    \item If $\spec A \rmono X$ has $\star$ then so does $\spec A_f$ for all $f \in A$.
+    \item If $\prs{f_1, \ldots, f_n} = A$ and $\spec A_{f_i}$ has $\star$, so does $\spec A$.
+\end{enumerate}
+Assume $X = \bigcup_{i \in I} A_i$ and that every $A_i$ has $\star$. Then every open affine $\spec B \rmono X$ has $\star$.
+\end{lemma}
+
+\begin{proof}
+Let $\spec B \rmono X = \bigcup_{i \in I} \spec A_i$ when $A_i$ has $\star$ for every $i \in I$.
+Cover $\spec B$ with finitely many opens $\spec B_{g_j}$ which are simultaneously distinguished in $\spec B$ and $\spec A_i$ for some $i \in I$. This is possible by the previous lemma.
+
+Then $\spec B_{g_j}$ has $\star$. Note $\prs{g_1, \ldots, g_n} = B$, so $\spec B$ has $\star$ by the assumptions on $\star$.
+\end{proof}
+
+\begin{proposition}
+$X$ is locally Noetherian iff for every oepn $\spec A \subseteq X$, $A$ is Noetherian.
+
+In particular, $\spec A$ is a Noetherian scheme iff $A$ is Noetherian.
+\end{proposition}
+
+\begin{proof}
+We need to show the properties of the affine locality test.
+
+For 1, if $A$ is Noetherian so is $A_f$.
+For 2, we prove a lemma.
+\begin{lemma}
+If $\aa \ideal A$ and $f_i \in A$ are such that $\prs{f_1, \ldots, f_n} = A$ with localisation maps $\phi_i \colon A \to A_{f_i}$, then
+$$\aa = \bigcap_{i \in [n]} \phi_i^{-1}\prs{\phi_i\prs{\aa} \cdot A_{f_i}} \text{.}$$
+\end{lemma}
+\begin{proof}
+$\subseteq$ is clear, so we prove the other direction. Let $b$ in the RHS and write $\phi_i\prs{b} = \frac{a_i}{f_i^k}$ with $a_i \in \aa$ and $k > 0$.
+Then
+$$f_i^m\prs{f_i^k b - a_i} = 0 \text{.}$$
+Then
+$$f_i^{m+k b \in \aa} \text{.}$$
+Note that $\prs{f_1^{m+k}, \ldots, f_n^{m+k}} = A$, because $I=A \iff \sqrt{I} = A$, or because $D\prs{f^n} = D\prs{f}$.
+So, $1 = \sum_{i \in [n]}c_i f_i^{k+m}$ for $c_i \in A$.
+Then $$b = \sum_{i \in [n]} c_i f_i^{k+m}b \in \aa \text{.}$$
+\end{proof}
+
+We want to show $A$ is Noetherian assuming $A_{f_i}$ are.
+If $$\aa_1 \subseteq \aa_2 \subseteq \aa_3 \subseteq \ldots$$
+is an ascending chain of ideals in $A$ then
+$$\phi_i\prs{\aa_1} \subseteq \phi\prs{\aa_2} \subseteq \ldots$$
+is an ascending chain in $A_{f_i}$, so it stabilises.
+Since there are finitely many $f_i$ and since $\aa = \bigcap_{i \in [n]} \phi_i^{-1}\prs{\phi_i\prs{\aa_i}}$, the $\aa_j$ must stabilise.
+\end{proof}
+
+\begin{definition}[Morphism Locally of Finite Type]
+A morphism of $f \colon X \to Y$ of schemes is \stress{locally of finite type} if there's an open cover $\prs{V_i}_{i \in I}$ of $Y$ with $V_i \cong \spec B_i$ such that
+$$f^{-1}\prs{V_i} = \bigcup_{j \in J_i} \spec A_{i_j}$$
+such that $A_{i_j}$ is a finitely-generated $B_i$-agebra for every $i \in I$.
+\end{definition}
+
+\begin{definition}[Morphism of Finite Type]
+A morphism $f \colon X \to Y$ of schemes is \stress{of finite type} if we can take the $J_i$ above to be finite.
+\end{definition}
+
+\begin{definition}[Finite Morphism]
+A morphism $f \colon X \to Y$ of schemes is \stress{finite} if there's an open cover $\prs{V_i}_{i \in I}$ of $Y$ with $V_i = \spec B_i$ and such that $f^{-1}\prs{V_i} \cong \spec A_i$ with $A_i$ a finite $B_i$-module.
+\end{definition}
+
+\begin{definition}[Open Immersion]
+Let $X$ be a scheme and $U \subseteq X$ open. Then $\prs{U, \rest{\OOO_X}{U}}$ is a subscheme. Then the map $U \rmono X$ is an \stress{open immersion}.
+\end{definition}
+
+\begin{definition}[Closed Immersion]
+A \stress{closed immersion} is a morphism $f \colon Y \to X$ such that the following holds.
+\begin{enumerate}
+    \item $f$ gives a homeomorphism onto a closed subset of $X$.
+    \item $f^{\#} \colon \OOO_X \to f_*\OOO_Y$ is surjective.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Closed Subscheme]
+A \stress{closed subscheme} is an equivalence class of such morphisms.
+\end{definition}
+
+\begin{remark}
+Why can't we do what we did for an open immersion?
+Look at
+\begin{align*}
+    \spec \CC &\rmono \spec \CC\brs{t} \\
+    \CC\brs{x} &\to 0 \\
+    t &\mapsto 0 \text{.}
+\end{align*}
+Let $i \colon \CC \rmono \spec \CC\brs{t}$, and $X = \spec \CC\brs{t}$.
+Then
+$i^{-1}\OOO_X = \OOO_{X,x}$.
+\end{remark}
+
+\begin{remark}
+A map $A \to \quot{A}{I}$ induced a closed immersion $\spec \prs{\quot{A}{I}} \rmono \spec \prs{A}$.
+\end{remark}
+
+\begin{definition}
+Let $Y \subseteq X$ a closed subset of a scheme $X$.
+If $X = \spec A$ set $I = \bigcap_{P \in Y} P \ideal A$.
+Then $V\prs{I} = Y$. The induced closed subscheme structure is given by
+$$Y = \spec\prs{\quot{A}{I}} \rmono \spec \prs{A} \text{.}$$
+\end{definition}
+
+\begin{remark}
+$\spec\prs{\quot{A}{I}}$ is indeed reduced.
+\end{remark}
+
+In general, to define the induced closed subscheme structure, we cover $X$ with open affines $U_i$ and set $Y_i = Y \cap U_i$.
+We get closed subschemes $Y_i \rmono U_i$. We glue these to obtain a sheaf on $Y$.
+To construct these we need to give isomorphisms
+$$\rest{\OOO_{Y_i}}{Y_i \cap Y_j} \xrightarrow{\phi_{i,j}} \rest{\OOO_{Y_j}}{Y_i \cap Y_J}$$
+such that
+$$\rest{\phi_{i,k}}{Y_{i,j,k}} = \rest{\phi_{j,k}}{Y_{i,j,k}} = \rest{\phi_{i,j}}{Y_{i,j,k}}$$
+with the notation $Y_{i,j,k} = Y_i \cap Y_j \cap Y_k$.
+
+\begin{definition}[Dimension]
+Let $X \in \Sch$. The \stress{dimension} of $X$ is the supremum of the length of any chain $$Z_0 \subsetneq Z_1 \subsetneq Z_2 \subsetneq \ldots$$ of closed irreducible subsets of $X$.
+\end{definition}
+
+\begin{remark}
+If $X = \spec A$, then $\dim X$ is the Krull dimension of $A$.
+\end{remark}
+
+\begin{proposition}[Fibre Products]\label{proposition:fibre_products}
+Fibre products exist in $\Sch$.
+
+Let $X \to S$ and $Y \to S$ be morphisms of schemes. There exists \stress{the fibre product} $X \times_S Y$ together with maps $p_1 \colon X \times_S Y \to X$ and $p_2 \colon X \times_S Y \to Y$ such that for every $S$-scheme $Z$ and any pair of morphisms $Z \to X$ and $Z \to Y$ there is a unique morphism $Z \to X \times_S Y$ such that the following diagram commutes.
+$$
+\begin{tikzcd}
+Z \arrow[dr, dotted, "\phi"] & & \\ & X \times_S Y \arrow[r, "p_2"] \arrow[d, "p_1", swap] & Y \arrow[d] \\ & X \arrow[r] & S
+\end{tikzcd}
+$$
+\end{proposition}
+
+\begin{remark}
+The fibre product when it exists is unique up to a unique isomorphism. We shall use this during the proof when moving from affine schemes to general ones.
+\end{remark}
+
+\begin{lemma}\label{lemma:fibre_products}
+Let $X,Y \in \Sch\prs{S}$ with respective maps $f,g$ to $S$ such that $X \times_S Y$ exists with maps $p_1$ to $X$ and $p_2$ to $Y$. Let $U \subseteq X, V \subseteq Y, T \subseteq S$ open such that $f\prs{U}, g\prs{V} \subseteq T$. Then
+$$F \ceq p_1^{-1}\prs{U} \cap p_2^{-1}\prs{V} \cong U \times_T V \text{.}$$
+\end{lemma}
+
+\begin{proof}
+View the following diagram.
+$$
+\begin{tikzcd}
+Z \arrow[r] \arrow[d] & V \arrow[d] \\ U \arrow[r] & T
+\end{tikzcd}
+$$
+we extend it to a diagram
+$$
+\begin{tikzcd}
+Z \arrow[r] \arrow[d] & V \arrow[d] \arrow[r, hookrightarrow] & Y \arrow[dd] \\ U \arrow[d,hookrightarrow] \arrow[r] & T \arrow[dr, hookrightarrow] & \\
+X \arrow[rr] & & S
+\end{tikzcd}
+$$
+then by diagram chase the maps from $Z$ factor through $p_1^{-1}\prs{U} \cap p_2^{-1}\prs{V}$.
+\end{proof}
+
+\begin{proof}
+\begin{description}
+\item[Affine Case:]
+Assume first that $S = \spec A, X = \spec B, Y = \spec C$. We show $\spec \prs{B \times_A C}$ is the tensor product $X \times_S Y$.
+This follows from exercise 2.4 in Hartshorne and the fact that the cofibre product of rings is the tensor product. We explain that explicitly.
+
+Recall
+$$\hom\prs{B \otimes_A C, R} \leftrightarrow \hom\prs{B, R} \times_{\hom A,R} \hom\prs{C,R} \text{.}$$
+For any scheme $Z$ and any ring $A$ we have
+$$\hom\prs{Z, \spec A} \leftrightarrow \hom\prs{A, \Gamma\prs{Z, \OOO_Z}}$$
+so
+\begin{align*}
+    \hom\prs{Z, \spec\prs{B \otimes_A C}} \to \hom\prs{B \otimes_A C, R} &\leftrightarrow \hom\prs{B, R} \times_{\hom\prs{A,R}} \hom\prs{C, R} \\&\leftrightarrow \hom\prs{Z, \spec B} \times_{\hom\prs{Z, \spec A}} \hom\prs{Z, \spec C}
+\end{align*}
+where the arrows are natural bijections.
+\item[If $S$ is affine:]
+We apply \ref{lemma:fibre_products}. If $S$ is affine, cover $X,Y$ with open affines $\prs{U_i}_{i \in I}, \prs{V_j}_{j \in J}$ and then glue $U_i \times_S V_j$.
+
+We need to give isomorphisms on the overlaps. By the lemma $\prs{U_i \cap U_{i'}} \times_S \prs{V_j \cap V_{j'}}$ exists and is unique up to a a unique isomorphism.
+Then uniqueness implies $\phi_{i,j} = \phi_{j,k} \circ \phi_{i,j}$, as both sides satisfy the universal property.
+
+Then we glue to get $X \times_S Y$.
+
+\item[General Case:]
+Cover $S$ with $\prs{W_i}_{i \in I}$ affine. By the lemma we get the fibre products $f^{-1}\prs{W_i} \times_{W_i} g^{-1}\prs{W_i}$. Gluing these we get the result.
+\end{description}
+\end{proof}
+
+\begin{example}
+Let $X \in \Sch$, then $X \times_X X \cong X$.
+
+Specifically $$\spec k \times_{\spec k} \spec k \cong \spec k \text{.}$$
+\end{example}
+
+\begin{example}
+Examine $\spec \CC \times_{\spec \RR} \spec \CC$ under the inclusions $\RR \rmono \CC$ which induce $\spec \CC \to \spec \RR$. This is $\spec \prs{\CC \otimes_{\RR} \CC}$. This is $\spec\prs{\CC \times \CC}$.
+There's an isomorphism
+\begin{align*}
+    \C \otimes_\RR \CC &\riso \CC \times \CC \\
+    z \otimes 1 &\mapsto \prs{z, \bar{z}} \\
+    z \otimes t &\mapsto \prs{zt, \bar{z} t} \text{.}
+\end{align*}
+Now, $\spec\prs{\CC \times \CC}$ is $\spec\prs{\CC} \amalg \spec\prs{\CC}$ by exercise 2.4 and by the disjoint union being the coproduct of schemes.
+\end{example}
+
+\begin{example}
+Examine the following diagram.
+$$
+\begin{tikzcd}
+& \overline{\FF_p} & \\
+\FF_{p^2} \arrow[ur] & & \FF_{p^2} \arrow[ul] \\
+& \FF_p \arrow[ur] \arrow[ul] &
+\end{tikzcd}
+$$
+Now
+\begin{align*}
+    \spec \FF_{p^3} \times_{\spec \FF_p} \spec \FF_{p^2} &\cong \spec\prs{\FF_{p^3} \otimes_{\FF_p} \FF_{p^3}} \cong \spec\prs{\FF_{p^6}} \text{.}
+\end{align*}
+For the second isomorphism, we define
+\begin{align*}
+    \FF_{p^3} \otimes \FF_{p^2} &\to \FF_{p^6} \\
+    a \otimes b &\mapsto ab \text{.}
+\end{align*}
+This is clearly surjective and is a map between vector spaces of the same dimension and is therefore an isomorphism.
+\end{example}
+
+\begin{definition}[Fibres]
+Let $f \colon X \to Y$ be a morphism of shcemes and let $y \in Y$. Let $k_y = \quot{\OO_{Y,y}}{\mm_y}$. Then
+there's an induces diagram
+$$
+\begin{tikzcd}
+X_y \arrow[r] \arrow[d] & X \arrow[d, "f"] \\ \spec k_y \arrow[r, hookrightarrow] & Y
+\end{tikzcd}
+$$
+where $X_y \ceq \spec k_y \times_Y X$ is \stress{the fibre of $f$ above $y$}.
+\end{definition}
+
+
+\begin{exercise}
+$X_y$ is homeomorphic to $f^{-1}\prs{y}$.
+\end{exercise}
+
+\begin{example}
+Let $R \ceq \quot{\ZZ\brs{x,y}}{y^2 - x^3 + 15}$, then $\spec R$ has a natural map to $\spec \ZZ$ given by the map $\ZZ \to \ZZ\brs{x,y} \to R$.
+There is a closed immersion $\spec \FF_p \rmono \spec \ZZ$ given by the morphism $\ZZ \to \FF_p$.
+We get the the fibre of $f$ at $\prs{p}$ is $\spec \prs{\quot{\FF_p\brs{x,y}}{\prs{y^2 - x^3 + 15}}}$.
+
+Looking at dimensions, we have $\dim \ZZ = 1$, $\dim R = 2$, $\dim \FF_p = 0$ and $\dim \spec \prs{\quot{\FF_p\brs{x,y}}{\prs{y^2 - x^3 + 15}}} = 1$.
+\end{example}
+
+\begin{example}
+Let $k = \CC$ and examine $\spec R$ where $R \ceq \quot{k\brs{x,y,t}}{\prs{ty - x^2}}$.
+ We map $\spec R \to \spec k\brs{t} \cong \AA^1_\CC$. The closed points of $\AA^1_\CC$ are in correspondence with elements of $\CC$. So we get a map $\spec k \rmono \spec k\brs{t}$ coming from the map
+ \begin{align*}
+     k\brs{t} &\to k \\
+     t &\mapsto a \text{.}
+ \end{align*}
+ We get that the fibre at $a$ is $\spec\prs{\quot{k\brs{x,y}}{\prs{ay - x^2}}}$, as in the following diagram.
+ $$
+ \begin{tikzcd}
+ \spec\prs{\quot{k\brs{x,y}}{\prs{ay - x^2}}} \arrow[d] \arrow[r, hookrightarrow] & \spec R \arrow[d, "f"] \\ \spec k \arrow[r, hookrightarrow] & \spec k\brs{t}
+ \end{tikzcd}
+$$
+Denote $X = \spec R$ and $X_a$ the fibre. Then at $a=0$ we have $X_0 \cong \spec \prs{\quot{k\brs{x,y}}{x^2}}$.
+
+We say that the parabolas ``degenerate'' into the double line.
+
+We can also take the fibre at the generic point $\eta \colon \spec k\prs{t} \rmono \AA_\CC^1$. The fibre $X_\eta$ is then $\spec \prs{\quot{k\prs{t}\brs{x,y}}{\prs{ty - x^2}}}$. This is a conic over the field $k\prs{t}$.
+\end{example}
+
+\begin{remark}
+Many questions in algebraic geometry amount to asking what we can learn about $X_a$ from the \stress{generic fibre} $X_\eta$, in the above notation.
+\end{remark}
+
+\begin{example}
+Take $k = \CC$.
+We can take the same example over $\spec k\brs{\brs{x}}$. We have $\spec k\brs{\brs{t}} = \set{\prs{0}, \prs{t}}$. Then there are two points, $t=0$ and the generic point.
+\end{example}
+
+\begin{example}
+We can examine the first example over $\spec \ZZ_p$ or $\spec \ZZ_{\prs{p}} = \set{\prs{0}, \prs{p}}$.
+\end{example}
+
+\begin{definition}[Base Change]
+Let $S \in \Sch$ and $X,S' \in \Sch\prs{S}$. Then
+$X \times_S S'$ is an $S'$-scheme.
+This is called \stress{the base change of $X$ to $S'$}.
+\end{definition}
+
+\begin{example}
+Let $X = \spec \RR\brs{x}$ which maps to $\spec \RR$. We have also a morphism $\spec \CC \to \spec \RR$, and the fibre product of these maps is $\spec \CC\brs{x} \cong \AA_\CC^1$.
+\end{example}
+
+\begin{remark}
+Base change is transitive. If $X,S',S'' \in \Sch\prs{S}$, then
+$$X \times_{S} S'' \cong \prs{X \times_S S'} \times_{S'} S'' \text{.}$$
+This can be checked by the universal property.
+\end{remark}
+
+\begin{definition}[Functor of Points]
+Let $X \in \Sch$. We get a functor
+$$\Sch^{\op} \to \Set$$
+which sends $S$ to $\hom \prs{S,X}$ and a morphism $g \colon S \to S'$ to post-composition $f \to g \circ f$.
+\end{definition}
+
+\begin{remark}
+\begin{itemize}
+    \item
+    By Yoneda's lemma, the functor $\hom\prs{-,X}$ determines the scheme.
+    \item
+    It's enough to work with affine schemes to understand this.
+    \item
+    Most interesting schemes are best understood in terms of their functor of points.
+\end{itemize}
+\end{remark}
+
+\begin{notation}
+Denote $X\prs{S} \ceq \hom\prs{S,X}$.
+\end{notation}
+
+\begin{example}
+We define $M_g$ the \stress{moduli functor of (smooth, projective) curves of genus $g$}.
+
+One can define genus generally such that the genus of a complex curve is its topological genus as a real manifold.
+We define
+$$M_g\prs{S} = \quot{\set{\text{relative curves $C \to S$ of genus $g$}}}{\sim}$$
+where a \stress{relative curve} $C \to S$ is a morphism such that for any $k = \bar{k}$ and any $x \colon \spec k \rmono S$, the fibre $C_x$ of $C \to S$ over $x$ is a \emph{smooth connected projective}\footnote{We haven't defined these formally, but they are analogous to the classical notions for varieties} curve of genus $g$ over $\spec k$.
+\end{example}
+
+\begin{fact}[Deligne-Mumford]
+There is (almost) a scheme $\widetilde{M_g}$ such that there's a bijection
+$$M_g\prs{S} = \hom\prs{S, M_g} \leftrightarrow M_g\prs{S}$$
+which is functorial in $S$.
+\end{fact}
+
+\begin{remark}
+We want to understand $\dim M_g$. We can compute it by computing $$\dim_{\CC} \hom_{C_0}\prs{\spec\prs{\quot{\CC\brs{x}}{x^2}}, M_g \times_{\ZZ} \CC}$$
+the dimension of the tangent space of $M_g$ at $C_0 \in M_g\prs{\CC}$.
+We have
+$$\hom_{C_0}\prs{\spec\prs{\quot{\CC\brs{x}}{x^2}}, M_g \times_{\ZZ} \CC} \subseteq M_g\prs{\spec\prs{\quot{\CC\brs{x}}{x^2}}} \text{,}$$
+where the latter can be computed via deformation theory from commutative algebra.
+\end{remark}
+
+% 30.4.2020
+
+Let $f \colon X \to Y$ be a morphism of schemes and let $\Delta \colon X \to_Y X$ be the ``diagonal'' corresponding to $f$ on each factor.
+
+\begin{definition}
+$f \colon X \to Y$ is \stress{separated} if $\Delta$ is a closed immersion.
+\end{definition}
+
+\begin{definition}
+A scheme $X$ is \stress{separated} if $X \to \spec \ZZ$ is separated.
+\end{definition}
+
+\begin{notation}
+Let $k \in \catname{Field}$, we may write $X \times_k Y$ to mean $X \times_{\spec k} Y$.
+\end{notation}
+
+\begin{example}
+Let $k \in \catname{Field}$ and let $X$ be the affine line with double origin over $k$.
+Then $X$ is \emph{not} separated over $k$.
+
+$X \times_k X$ is geometrically the plane with doubled axes and four different origins.
+We claim $\Delta\prs{X}$ isn't closed in $X \times_k X$. We can think of the fibre product as gluing of four planes so we get maps
+$$\AA_k^2 \rmono \coprod_{i \in [4]} \AA_k^2 \to X \times_k X \text{.}$$
+Now, pulling back $\Delta\prs{X}$ to $\AA_k^2$ we get the diagonal minus the origin, so $X$ isn't separated.
+\end{example}
+
+\begin{proposition}
+Let $f \colon \spec A \to \spec B$. Then $f$ is separated.
+\end{proposition}
+
+\begin{proof}
+Let $\phi \colon B \to A$ induce $f$. Then $\Delta^{\#} \colon A \otimes_B A \to A$ send $a \otimes a'$ to $a a'$.
+This is surjective.
+Hence $\Delta$ is a closed immersion, hence $f$ is separated.
+\end{proof}
+
+\begin{corollary}
+If $f \colon X \to Y$ is a morphism of schemes, then $f$ is separated iff $\Delta\prs{X}$ is closed in $X \times_Y X$.
+\end{corollary}
+
+\begin{proof}
+Suppose $\Delta\prs{X} \subseteq X \times_Y X$ is closed.
+We want to show the following.
+\begin{enumerate}
+    \item $\Delta \colon X \to \Delta\prs{X}$ is a homeomorphism onto the image.
+    Sending $X$ to $\Delta\prs{X}$ and then projecting to $X$ via one of the projections is a homeomorphism. This is clear. Hence $\Delta \colon X \to \Delta\prs{X}$ is an injection, and is therefore an homeomorphism onto the image.
+    \item $\OOO_{X \times_Y X} \repi \Delta_*\OOO_X$ is surjective. It's enough to show this on stalks. Check this at a point $\Delta\prs{P} \in \Delta\prs{X}$. Choose $U \subseteq X$ open affine such that $P \in U$ and $f\prs{U} \subseteq V$ where $V \subseteq Y$ is open affine.
+    
+    Then $U \times_Y U \subseteq X \times_Y X$ is an open affine subset of $\Delta\prs{P}$.
+    The corresponding map on stalks is surjective by the previous propoisition.
+    Hence $\prs{\OOO_{X \times_Y X}}_{\Delta\prs{P}} \to \prs{\Delta_*, \OOO_X}_{\Delta\prs{P}}$ is surjective.
+\end{enumerate}
+\end{proof}
+
+\section{Valuation Rings}
+
+Let $k \in \mrm{Field}$ and $G$ a totally ordered abelian group (e.g. $\ZZ, \RR, \RR^n$).
+
+\begin{definition}[Valuation]
+A \stress{valuation on $k$} is a map $v \colon k^\times \to G$ such that
+\begin{enumerate}
+    \item $v\prs{xy} = v\prs{x} + v\prs{y}$.
+    \item $v\prs{x+y} \geq \min\prs{v\prs{x}, v\prs{y}}$.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Clearly, $v\prs{1} = 0$ and $v\prs{r^{-1}} = -v\prs{r}$.
+\end{remark}
+
+\begin{definition}[Discrete Valuation]
+A \stress{discrete valuation} is a valuation into $\ZZ$.
+\end{definition}
+
+\begin{example}
+Let $k = \CC\prs{\prs{t}}$, we can define the valuation
+$$v \prs{\sum_{i \geq i_0}^\infty a_i \cdot t^i} = i_0$$
+is a discrete valuation.
+\end{example}
+
+\begin{definition}[Valuation Ring]
+Let $v \colon k \to G$ be a valuation. The \stress{valuation ring of $v$} is
+$$R_v \ceq \set{v \in k^\times}{v\prs{r} \geq 0} \cup \set{0} \text{.}$$
+\end{definition}
+
+\begin{remark}
+$R_v$ is a local ring with maximal ideal
+$$\mm_v = \set{R \in R}{v\prs{r} > 0} \cup \set{0} \text{.}$$
+\end{remark}
+
+\begin{definition}[Discrete Valuation Ring]
+A ring $R$ is a \stress{discrete valuation ring} if there's a valuation $v$ such that $R \cong R_v$.
+\end{definition}
+
+\begin{lemma}
+A ring $R$ is a discrete valuation ring iff $R$ is a PID with a unique non-zero maximal ideal.
+\end{lemma}
+
+\begin{proof}
+Use the fact that ideals of $R$ are of the form $\mm_v^n$ where $\mm_v = \prs{t}$ and $v\prs{t} > 1$.
+\end{proof}
+
+\begin{example}
+Let $k = \QQ$ and $p \in \ZZ$ prime. Define
+$v \colon \QQ^\times \to \ZZ$ by $p^k \frac{m}{n} \mapsto k$ when $\gcd\prs{p,mn} = 1$. This is the \stress{$p$-adic valuation} and induces the DVR $R = \ZZ_{\prs{p}}$ of the \stress{$p$-adic integers}.
+\end{example}
+
+\begin{remark}
+If $R$ is a DVR then $\spec R = \set{\prs{0}, \mm}$ with $\mm$ a maximal ideal.
+\end{remark}
+
+\begin{example}
+Let $R = \CC\brs{\brs{t}} \subseteq \CC\prs{\prs{t}} \cong k$. We have an induced map $\spec k \rmono \spec R$.
+\end{example}
+
+\begin{theorem}[Valuative Criterion for Separatedness]
+Let $f \colon X \to Y$ be a morphism of schemes and assume $X$ is Noetherian. Then $f$ is separated iff for all valuation rings $R \subseteq K$ (where $K = \mrm{Frac}\prs{R}$) and all commutatives diagrams
+$$
+\begin{tikzcd}
+\spec K \arrow[r] \arrow[d, hookrightarrow] & X \arrow[d] \\ \spec R \arrow[r] & Y
+\end{tikzcd}
+$$
+there's at most one morphism $\spec R \to X$ such that the resulting diagram commutes.
+\end{theorem}
+
+\begin{proof}
+See Hartshorne.
+\end{proof}
+
+\begin{corollary}
+Under Noetherian hypothesis we have the following.
+\begin{enumerate}
+    \item Open and closed immersions are separated.
+    \item A composition of separated morphisms is separated.
+    \item Any base change of a separated morphism is separated.
+    I.e. if $f \colon X \to Y$ is separated and $g \colon Y' \to Y$ is a morphism then the induced map $f' \colon X \times_Y Y' \to Y'$ is separated.
+    \item Products of separated maps are separated. If $f \colon X \to Y$ and $f' \colon X' \to Y'$ are separated maps of $S$-schemes then
+    $$X \times_S X' \xrightarrow{f \times f'} Y \times_S Y'$$ is separated.
+    \item If $X \xrightarrow{f} Y \xrightarrow{g} Z$ and $gf$ is separated then $f$ is separated.
+    \item $f \colon X \to Y$ is separated iff there's an open cover (equivalently, for any open cover) $\set{Y_i}_{i \in I}$ of $Y$ such that $f^{-1}\prs{Y_i} \to Y_i$ (the restriction of $f$) is separated for every $i \in I$.
+\end{enumerate}
+\end{corollary}
+
+We prove some of the parts of the corollary.
+
+\begin{proof}
+6. Assume $f$ is separated, we want to show $\rest{f}{f^{-1}\prs{Y_i}} \to Y_i$ is separated. We want to use the valuative criterion. Examine a commutative diagram
+$$
+\begin{tikzcd}
+\spec k \arrow[r] \arrow[d, hookrightarrow] & f^{-1}\prs{Y_i} \arrow[d] \\ \spec k \arrow[r] & Y_i
+\end{tikzcd}
+$$
+We add arrows and use the valuative criterion to say there's at most one dotted arrow
+$$
+\begin{tikzcd}
+\spec k \arrow[r] \arrow[d, hookrightarrow] & f^{-1}\prs{Y_i} \arrow[d] \arrow[r, hookrightarrow] & X \arrow[d, "f"] \\ \spec k \arrow[dotted, rru] \arrow[r] & Y_i \arrow[r, hookrightarrow] & Y
+\end{tikzcd}
+$$
+from which there's at most one morphism $\spec k \to f^{-1}\prs{Y_i}$ such that the following commutes.
+$$
+\begin{tikzcd}
+\spec k \arrow[r] \arrow[d, hookrightarrow] & f^{-1}\prs{Y_i} \arrow[d] \arrow[r, hookrightarrow] & X \arrow[d, "f"] \\ \spec k \arrow[dotted, ru] \arrow[r] & Y_i \arrow[r, hookrightarrow] & Y
+\end{tikzcd}
+$$
+Then by the valuative criterion we're done.
+
+1. Showing that a closed immersion is separated is also done via the valuative criterion by examining the following diagram.
+
+$$
+\begin{tikzcd}
+\spec K \arrow[d, hookrightarrow] \arrow[rr, bend left = 30] & X_0 \arrow[dr, hookrightarrow] \arrow[r, hookrightarrow] & X \arrow[d, hookrightarrow] \\ \spec R \arrow[rr] & & Y
+\end{tikzcd}
+$$
+\end{proof}
+
+\begin{definition}
+A morphism $f \colon X \to Y$ is \stress{proper} if it satisfies the following.
+\begin{enumerate}
+    \item $f$ is separated.
+    \item $f$ is of finite type.
+    \item $f$ is \stress{universally closed} in the sense that for every $Y' \to Y$, the base change $f'$ is a closed map on the topological spaces.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+Let $k \in \catname{Field}$ and $X = \AA_k^1$. Then $X$ is not proper over $k$.
+We have $\AA_k^1 \times_k \AA_k^1 = \AA_k^2$. Writing $f \colon \AA_k^1 \to \spec k$ we get $f' \colon \prs{x,y} \mapsto y$. Let $Z = \spec\prs{\quot{k\brs{x,y}}{xy-1}}$.
+Then $f'\prs{Z} \cong \AA_k^1 \setminus \set{0}$ is not closed, so $\AA_k^1 \to k$ is not proper.
+\end{example}
+
+\begin{theorem}[Valuative Criterion for Properness]
+Let $f \colon X \to Y$ be of finite type and assume $X$ is Noetherian. Then $f$ is proper iff for all valuation rings $R \subseteq K$ and all commuting diagrams
+$$
+\begin{tikzcd}
+\spec K \arrow[r] \arrow[d, hookrightarrow] & X \arrow[d] \\ \spec K \arrow[r] & Y
+\end{tikzcd}
+$$
+there's a unique $\psi \colon \spec R \to X$ making the diagram
+$$
+\begin{tikzcd}
+\spec K \arrow[r] \arrow[d, hookrightarrow] & X \arrow[d] \\ \spec K \arrow[r] \arrow[ur, dotted] & Y
+\end{tikzcd}
+$$
+commute.
+\end{theorem}
+
+\begin{corollary}
+Assume $f \colon X \to Y$ under suitable Noetherian hypothesis on $X,Y$.
+\begin{enumerate}
+    \item Closed immersions are proper.
+    \item Properness is stable under base-change.
+    \item Fibred products of proper morphisms are proper.
+    \item If $X \xrightarrow{f} Y \xrightarrow{g} Z$, $gf$ is proper and $g$ is separated, then $f$ is also proper.
+    \item Properness is local on the base, as before.
+\end{enumerate}
+\end{corollary}
+
+\begin{definition}[Projective Space of Affine Schemes]
+Let $A \in \catname{Ring}$, we define \stress{the $n$\textsuperscript{th} projective space over $A$} to be
+$$\PP_A^n = \mrm{Proj}\prs{A \brs{x_0, \ldots, x_n}} \text{.}$$
+\end{definition}
+
+\begin{remark}
+A map $A \to B$ induces
+$$\PP_{B}^n \xrightarrow{\sim} \PP_A^n \times_{\spec A} \spec B \text{.}$$
+\end{remark}
+
+\begin{definition}[Projective Space of Schemes]
+Let $X$ be a scheme, we define $\PP_{X}^{n} = \PP_{\ZZ}^n \times_{\spec \ZZ} X$.
+\end{definition}
+
+\begin{definition}[Projective Morphism]
+A morphism $f \colon X \to Y$ is \stress{projective} if it facotrs as
+$X \stackrel{i}{\rmono} \PP_Y^n \to Y$ for some $n \in \NN$ and where $i$ is a closed immersion.
+\end{definition}
+
+\begin{definition}[Quasi-projective Morphism]
+$f \colon X \to Y$ is \stress{quasi-projective} if it factors as $X \stackrel{i}{\rmono} X' \xrightarrow{f'} Y$ with $i$ an open immersion and $f'$ projective.
+\end{definition}
+
+\begin{claim}
+Let $A \in \catname{Ring}$ and $S = \bigoplus_{d \in \NN} S_d$ an $\NN$-graded ring with $S_0 = A$. Assume $S$ is finitely-generated as an $A$-algebra by elements of $S_1$.
+Then that the natural map
+$\mrm{Proj}\prs{S} \to \spec A$ is projective.
+\end{claim}
+
+\begin{proof}
+Let $S' \ceq A\brs{x_0, \ldots, x_n}$, there's a surjective map $S' \repi S$ by taking degree $1$ terms to degree $1$ terms which include the generating set in $S_1$.
+Then the map factors as
+$$\mrm{Proj} S \rmono \mrm{Proj} S' = \PP_A^n \to \spec A \text{.}$$
+\end{proof}
+
+\begin{theorem}
+A Projective morphism of Noetherian schemes is proper.
+\end{theorem}
+
+\begin{remark}
+Our definition of projectivity is not the most flexible.
+\end{remark}
 
 \backmatter
 \end{document}
