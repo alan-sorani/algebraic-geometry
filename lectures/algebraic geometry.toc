@@ -6,3 +6,4 @@
 \contentsline {section}{\numberline {2.2}Schemes - Basic Definitions}{8}{section.2.2}% 
 \contentsline {subsection}{\numberline {2.2.1}Properties of Schemes:}{16}{subsection.2.2.1}% 
 \contentsline {section}{\numberline {2.3}Valuation Rings}{23}{section.2.3}% 
+\contentsline {chapter}{\numberline {3}Sheaves of Modules}{29}{chapter.3}% 

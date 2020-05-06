@@ -104,59 +104,60 @@
 \contentsline {proof}{{Proof}{9}{}}{17}{proof.9}% 
 \contentsline {definitionx}{{Definition}{2.2.{50}}{Locally Noetherian Scheme}}{17}{theoremx.2.2.50}% 
 \contentsline {definitionx}{{Definition}{2.2.{51}}{Quasi-Compact Scheme}}{17}{theoremx.2.2.51}% 
-\contentsline {definitionx}{{Definition}{2.2.{52}}{Noetherian Scheme}}{17}{theoremx.2.2.52}% 
-\contentsline {remark}{{Remark}{2.2.{53}}{}}{17}{theoremx.2.2.53}% 
-\contentsline {lemma}{{Lemma}{2.2.{54}}{}}{17}{theoremx.2.2.54}% 
+\contentsline {definitionx}{{Definition}{2.2.{52}}{Quasi-Compact Morphism}}{17}{theoremx.2.2.52}% 
+\contentsline {definitionx}{{Definition}{2.2.{53}}{Noetherian Scheme}}{17}{theoremx.2.2.53}% 
+\contentsline {remark}{{Remark}{2.2.{54}}{}}{17}{theoremx.2.2.54}% 
+\contentsline {lemma}{{Lemma}{2.2.{55}}{}}{17}{theoremx.2.2.55}% 
 \contentsline {proof}{{Proof}{10}{}}{17}{proof.10}% 
-\contentsline {lemma}{{Lemma}{2.2.{55}}{Affine Locality Test}}{17}{theoremx.2.2.55}% 
+\contentsline {lemma}{{Lemma}{2.2.{56}}{Affine Locality Test}}{17}{theoremx.2.2.56}% 
 \contentsline {proof}{{Proof}{11}{}}{18}{proof.11}% 
-\contentsline {proposition}{{Proposition}{2.2.{56}}{}}{18}{theoremx.2.2.56}% 
+\contentsline {proposition}{{Proposition}{2.2.{57}}{}}{18}{theoremx.2.2.57}% 
 \contentsline {proof}{{Proof}{12}{}}{18}{proof.12}% 
-\contentsline {lemma}{{Lemma}{2.2.{57}}{}}{18}{theoremx.2.2.57}% 
+\contentsline {lemma}{{Lemma}{2.2.{58}}{}}{18}{theoremx.2.2.58}% 
 \contentsline {proof}{{Proof}{13}{}}{18}{proof.13}% 
-\contentsline {definitionx}{{Definition}{2.2.{58}}{Morphism Locally of Finite Type}}{18}{theoremx.2.2.58}% 
-\contentsline {definitionx}{{Definition}{2.2.{59}}{Morphism of Finite Type}}{18}{theoremx.2.2.59}% 
-\contentsline {definitionx}{{Definition}{2.2.{60}}{Finite Morphism}}{18}{theoremx.2.2.60}% 
-\contentsline {definitionx}{{Definition}{2.2.{61}}{Open Immersion}}{18}{theoremx.2.2.61}% 
-\contentsline {definitionx}{{Definition}{2.2.{62}}{Closed Immersion}}{18}{theoremx.2.2.62}% 
-\contentsline {definitionx}{{Definition}{2.2.{63}}{Closed Subscheme}}{19}{theoremx.2.2.63}% 
-\contentsline {remark}{{Remark}{2.2.{64}}{}}{19}{theoremx.2.2.64}% 
+\contentsline {definitionx}{{Definition}{2.2.{59}}{Morphism Locally of Finite Type}}{18}{theoremx.2.2.59}% 
+\contentsline {definitionx}{{Definition}{2.2.{60}}{Morphism of Finite Type}}{18}{theoremx.2.2.60}% 
+\contentsline {definitionx}{{Definition}{2.2.{61}}{Finite Morphism}}{18}{theoremx.2.2.61}% 
+\contentsline {definitionx}{{Definition}{2.2.{62}}{Open Immersion}}{18}{theoremx.2.2.62}% 
+\contentsline {definitionx}{{Definition}{2.2.{63}}{Closed Immersion}}{19}{theoremx.2.2.63}% 
+\contentsline {definitionx}{{Definition}{2.2.{64}}{Closed Subscheme}}{19}{theoremx.2.2.64}% 
 \contentsline {remark}{{Remark}{2.2.{65}}{}}{19}{theoremx.2.2.65}% 
-\contentsline {definitionx}{{Definition}{2.2.{66}}{}}{19}{theoremx.2.2.66}% 
-\contentsline {remark}{{Remark}{2.2.{67}}{}}{19}{theoremx.2.2.67}% 
-\contentsline {definitionx}{{Definition}{2.2.{68}}{Dimension}}{19}{theoremx.2.2.68}% 
-\contentsline {remark}{{Remark}{2.2.{69}}{}}{19}{theoremx.2.2.69}% 
-\contentsline {proposition}{{Proposition}{2.2.{70}}{Fibre Products}}{19}{theoremx.2.2.70}% 
-\contentsline {remark}{{Remark}{2.2.{71}}{}}{19}{theoremx.2.2.71}% 
-\contentsline {lemma}{{Lemma}{2.2.{72}}{}}{19}{theoremx.2.2.72}% 
+\contentsline {remark}{{Remark}{2.2.{66}}{}}{19}{theoremx.2.2.66}% 
+\contentsline {definitionx}{{Definition}{2.2.{67}}{}}{19}{theoremx.2.2.67}% 
+\contentsline {remark}{{Remark}{2.2.{68}}{}}{19}{theoremx.2.2.68}% 
+\contentsline {definitionx}{{Definition}{2.2.{69}}{Dimension}}{19}{theoremx.2.2.69}% 
+\contentsline {remark}{{Remark}{2.2.{70}}{}}{19}{theoremx.2.2.70}% 
+\contentsline {proposition}{{Proposition}{2.2.{71}}{Fibre Products}}{19}{theoremx.2.2.71}% 
+\contentsline {remark}{{Remark}{2.2.{72}}{}}{19}{theoremx.2.2.72}% 
+\contentsline {lemma}{{Lemma}{2.2.{73}}{}}{19}{theoremx.2.2.73}% 
 \contentsline {proof}{{Proof}{14}{}}{20}{proof.14}% 
 \contentsline {proof}{{Proof}{15}{}}{20}{proof.15}% 
 \contentsline {example}{{Example}{8}{}}{20}{example.8}% 
 \contentsline {example}{{Example}{9}{}}{20}{example.9}% 
 \contentsline {example}{{Example}{10}{}}{20}{example.10}% 
-\contentsline {definitionx}{{Definition}{2.2.{73}}{Fibres}}{21}{theoremx.2.2.73}% 
+\contentsline {definitionx}{{Definition}{2.2.{74}}{Fibres}}{21}{theoremx.2.2.74}% 
 \contentsline {exercise}{{Exercise}{5}{}}{21}{exercise.5}% 
 \contentsline {example}{{Example}{11}{}}{21}{example.11}% 
 \contentsline {example}{{Example}{12}{}}{21}{example.12}% 
-\contentsline {remark}{{Remark}{2.2.{74}}{}}{21}{theoremx.2.2.74}% 
+\contentsline {remark}{{Remark}{2.2.{75}}{}}{21}{theoremx.2.2.75}% 
 \contentsline {example}{{Example}{13}{}}{21}{example.13}% 
 \contentsline {example}{{Example}{14}{}}{21}{example.14}% 
-\contentsline {definitionx}{{Definition}{2.2.{75}}{Base Change}}{22}{theoremx.2.2.75}% 
+\contentsline {definitionx}{{Definition}{2.2.{76}}{Base Change}}{22}{theoremx.2.2.76}% 
 \contentsline {example}{{Example}{15}{}}{22}{example.15}% 
-\contentsline {remark}{{Remark}{2.2.{76}}{}}{22}{theoremx.2.2.76}% 
-\contentsline {definitionx}{{Definition}{2.2.{77}}{Functor of Points}}{22}{theoremx.2.2.77}% 
-\contentsline {remark}{{Remark}{2.2.{78}}{}}{22}{theoremx.2.2.78}% 
-\contentsline {notation}{{Notation}{2.2.{79}}{}}{22}{theoremx.2.2.79}% 
+\contentsline {remark}{{Remark}{2.2.{77}}{}}{22}{theoremx.2.2.77}% 
+\contentsline {definitionx}{{Definition}{2.2.{78}}{Functor of Points}}{22}{theoremx.2.2.78}% 
+\contentsline {remark}{{Remark}{2.2.{79}}{}}{22}{theoremx.2.2.79}% 
+\contentsline {notation}{{Notation}{2.2.{80}}{}}{22}{theoremx.2.2.80}% 
 \contentsline {example}{{Example}{16}{}}{22}{example.16}% 
-\contentsline {fact}{{Fact}{2.2.{80}}{Deligne-Mumford}}{22}{theoremx.2.2.80}% 
-\contentsline {remark}{{Remark}{2.2.{81}}{}}{22}{theoremx.2.2.81}% 
-\contentsline {definitionx}{{Definition}{2.2.{82}}{}}{22}{theoremx.2.2.82}% 
+\contentsline {fact}{{Fact}{2.2.{81}}{Deligne-Mumford}}{22}{theoremx.2.2.81}% 
+\contentsline {remark}{{Remark}{2.2.{82}}{}}{22}{theoremx.2.2.82}% 
 \contentsline {definitionx}{{Definition}{2.2.{83}}{}}{22}{theoremx.2.2.83}% 
-\contentsline {notation}{{Notation}{2.2.{84}}{}}{22}{theoremx.2.2.84}% 
+\contentsline {definitionx}{{Definition}{2.2.{84}}{}}{22}{theoremx.2.2.84}% 
+\contentsline {notation}{{Notation}{2.2.{85}}{}}{22}{theoremx.2.2.85}% 
 \contentsline {example}{{Example}{17}{}}{23}{example.17}% 
-\contentsline {proposition}{{Proposition}{2.2.{85}}{}}{23}{theoremx.2.2.85}% 
+\contentsline {proposition}{{Proposition}{2.2.{86}}{}}{23}{theoremx.2.2.86}% 
 \contentsline {proof}{{Proof}{16}{}}{23}{proof.16}% 
-\contentsline {corollary}{{Corollary}{2.2.{86}}{}}{23}{theoremx.2.2.86}% 
+\contentsline {corollary}{{Corollary}{2.2.{87}}{}}{23}{theoremx.2.2.87}% 
 \contentsline {proof}{{Proof}{17}{}}{23}{proof.17}% 
 \contentsline {definitionx}{{Definition}{2.3.{1}}{Valuation}}{23}{theoremx.2.3.1}% 
 \contentsline {remark}{{Remark}{2.3.{2}}{}}{23}{theoremx.2.3.2}% 
@@ -176,14 +177,29 @@
 \contentsline {proof}{{Proof}{20}{}}{24}{proof.20}% 
 \contentsline {definitionx}{{Definition}{2.3.{11}}{}}{25}{theoremx.2.3.11}% 
 \contentsline {example}{{Example}{21}{}}{25}{example.21}% 
-\contentsline {theoremx}{{Theorem}{2.3.{12}}{Valuative Criterion for Properness}}{25}{theoremx.2.3.12}% 
-\contentsline {corollary}{{Corollary}{2.3.{13}}{}}{25}{theoremx.2.3.13}% 
-\contentsline {definitionx}{{Definition}{2.3.{14}}{Projective Space of Affine Schemes}}{25}{theoremx.2.3.14}% 
-\contentsline {remark}{{Remark}{2.3.{15}}{}}{25}{theoremx.2.3.15}% 
-\contentsline {definitionx}{{Definition}{2.3.{16}}{Projective Space of Schemes}}{25}{theoremx.2.3.16}% 
-\contentsline {definitionx}{{Definition}{2.3.{17}}{Projective Morphism}}{26}{theoremx.2.3.17}% 
-\contentsline {definitionx}{{Definition}{2.3.{18}}{Quasi-projective Morphism}}{26}{theoremx.2.3.18}% 
-\contentsline {claim}{{Claim}{2.3.{19}}{}}{26}{theoremx.2.3.19}% 
-\contentsline {proof}{{Proof}{21}{}}{26}{proof.21}% 
-\contentsline {theoremx}{{Theorem}{2.3.{20}}{}}{26}{theoremx.2.3.20}% 
-\contentsline {remark}{{Remark}{2.3.{21}}{}}{26}{theoremx.2.3.21}% 
+\contentsline {definitionx}{{Definition}{2.3.{12}}{Specialisation}}{25}{theoremx.2.3.12}% 
+\contentsline {definitionx}{{Definition}{2.3.{13}}{Dominating Ring}}{25}{theoremx.2.3.13}% 
+\contentsline {theoremx}{{Theorem}{2.3.{14}}{A-M Section 4}}{25}{theoremx.2.3.14}% 
+\contentsline {corollary}{{Corollary}{2.3.{15}}{}}{25}{theoremx.2.3.15}% 
+\contentsline {lemma}{{Lemma}{2.3.{16}}{}}{25}{theoremx.2.3.16}% 
+\contentsline {proof}{{Proof}{21}{}}{25}{proof.21}% 
+\contentsline {theoremx}{{Theorem}{2.3.{17}}{Valuative Criterion for Properness}}{25}{theoremx.2.3.17}% 
+\contentsline {proof}{{Proof}{22}{}}{26}{proof.22}% 
+\contentsline {corollary}{{Corollary}{2.3.{18}}{}}{27}{theoremx.2.3.18}% 
+\contentsline {definitionx}{{Definition}{2.3.{19}}{Projective Space of Affine Schemes}}{27}{theoremx.2.3.19}% 
+\contentsline {remark}{{Remark}{2.3.{20}}{}}{27}{theoremx.2.3.20}% 
+\contentsline {definitionx}{{Definition}{2.3.{21}}{Projective Space of Schemes}}{27}{theoremx.2.3.21}% 
+\contentsline {definitionx}{{Definition}{2.3.{22}}{Projective Morphism}}{27}{theoremx.2.3.22}% 
+\contentsline {definitionx}{{Definition}{2.3.{23}}{Quasi-projective Morphism}}{27}{theoremx.2.3.23}% 
+\contentsline {claim}{{Claim}{2.3.{24}}{}}{27}{theoremx.2.3.24}% 
+\contentsline {proof}{{Proof}{23}{}}{27}{proof.23}% 
+\contentsline {theoremx}{{Theorem}{2.3.{25}}{}}{27}{theoremx.2.3.25}% 
+\contentsline {proof}{{Proof}{24}{}}{27}{proof.24}% 
+\contentsline {definitionx}{{Definition}{2.3.{26}}{Variety}}{28}{theoremx.2.3.26}% 
+\contentsline {remark}{{Remark}{2.3.{27}}{}}{28}{theoremx.2.3.27}% 
+\contentsline {proposition}{{Proposition}{2.3.{28}}{}}{28}{theoremx.2.3.28}% 
+\contentsline {definitionx}{{Definition}{3.0.{1}}{$\OOO _X$-Module}}{29}{theoremx.3.0.1}% 
+\contentsline {definitionx}{{Definition}{3.0.{2}}{Morphism of $\OOO _X$-Modules}}{29}{theoremx.3.0.2}% 
+\contentsline {lemma}{{Lemma}{3.0.{3}}{}}{29}{theoremx.3.0.3}% 
+\contentsline {proof}{{Proof}{25}{}}{29}{proof.25}% 
+\contentsline {fact}{{Fact}{3.0.{4}}{}}{29}{theoremx.3.0.4}% 

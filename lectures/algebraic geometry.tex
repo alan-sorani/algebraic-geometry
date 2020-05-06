@@ -1138,6 +1138,10 @@ $X$ is \stress{locally Noetherian} if it has an over cover $\set{\spec A_i}_{i \
 $X$ is \stress{quasi-compact} if any open cover of $X$ has a finite subcover.
 \end{definition}
 
+\begin{definition}[Quasi-Compact Morphism]
+A morphism $f \colon X \to Y$ is \stress{quasi-compact} if there's an affine open cover $\prs{V_i}_{i \in I}$ of $Y$ such that $f^{-1}\prs{V_i}$ is quasi-compact for all $i \in I$.
+\end{definition}
+
 \begin{definition}[Noetherian Scheme]
 $X$ is \stress{Noetherian} if it's locally Noetherian and quasi-compact.
 \end{definition}
@@ -1219,7 +1223,7 @@ A morphism $f \colon X \to Y$ of schemes is \stress{of finite type} if we can ta
 \end{definition}
 
 \begin{definition}[Finite Morphism]
-A morphism $f \colon X \to Y$ of schemes is \stress{finite} if there's an open cover $\prs{V_i}_{i \in I}$ of $Y$ with $V_i = \spec B_i$ and such that $f^{-1}\prs{V_i} \cong \spec A_i$ with $A_i$ a finite $B_i$-module.
+A morphism $f \colon X \to Y$ of schemes is \stress{finite} if there's an open cover $\prs{V_i}_{i \in I}$ of $Y$ with $V_i \cong \spec B_i$ and such that $f^{-1}\prs{V_i} \cong \spec A_i$ with $A_i$ a finite $B_i$-module.
 \end{definition}
 
 \begin{definition}[Open Immersion]
@@ -1386,7 +1390,7 @@ This is clearly surjective and is a map between vector spaces of the same dimens
 \end{example}
 
 \begin{definition}[Fibres]
-Let $f \colon X \to Y$ be a morphism of shcemes and let $y \in Y$. Let $k_y = \quot{\OO_{Y,y}}{\mm_y}$. Then
+Let $f \colon X \to Y$ be a morphism of shcemes and let $y \in Y$. Let $k_y = \quot{\OOO_{Y,y}}{\mm_y}$. Then
 there's an induces diagram
 $$
 \begin{tikzcd}
@@ -1504,7 +1508,7 @@ where the latter can be computed via deformation theory from commutative algebra
 
 % 30.4.2020
 
-Let $f \colon X \to Y$ be a morphism of schemes and let $\Delta \colon X \to_Y X$ be the ``diagonal'' corresponding to $f$ on each factor.
+Let $f \colon X \to Y$ be a morphism of schemes and let $\Delta \colon X \to X \times_Y X$ be the ``diagonal'' corresponding to $f$ on each factor.
 
 \begin{definition}
 $f \colon X \to Y$ is \stress{separated} if $\Delta$ is a closed immersion.
@@ -1692,21 +1696,107 @@ We have $\AA_k^1 \times_k \AA_k^1 = \AA_k^2$. Writing $f \colon \AA_k^1 \to \spe
 Then $f'\prs{Z} \cong \AA_k^1 \setminus \set{0}$ is not closed, so $\AA_k^1 \to k$ is not proper.
 \end{example}
 
+\begin{definition}[Specialisation]
+Let $X_0, x_1 \in X$. If $x_0 \in \overline{\set{x_1}}$ then $x_1$ \stress{specialises to $x_0$}.
+\end{definition}
+
+\begin{definition}[Dominating Ring]
+Say $A,B \subseteq K$ are local rings in a field. We say $B$ \stress{dominates $A$} if $A \subseteq B$ and $\mm_A = \mm_B \cap A$.
+\end{definition}
+
+\begin{theorem}[A-M Section 4]
+Let $K$ be a field. A local ring $R \subseteq K$ is a valuation ring of $K$ iff $R$ is maximal with respect to domination.
+\end{theorem}
+
+\begin{corollary}
+Every local ring in $K$ is contained in some valuation ring.
+\end{corollary}
+
+\begin{lemma} \label{lemma:valuative_for_properness}
+Let $f \colon X \to Y$ quasi-compact. Then $f\prs{X}$ is closed in $Y$ iff $f\prs{X}$ is stable under specialisation.
+\end{lemma}
+
+\begin{proof}
+See Hartshorne.
+\end{proof}
+
 \begin{theorem}[Valuative Criterion for Properness]
 Let $f \colon X \to Y$ be of finite type and assume $X$ is Noetherian. Then $f$ is proper iff for all valuation rings $R \subseteq K$ and all commuting diagrams
 $$
 \begin{tikzcd}
-\spec K \arrow[r] \arrow[d, hookrightarrow] & X \arrow[d] \\ \spec K \arrow[r] & Y
+\spec K \arrow[r] \arrow[d, hookrightarrow] & X \arrow[d] \\ \spec R \arrow[r] & Y
 \end{tikzcd}
 $$
 there's a unique $\psi \colon \spec R \to X$ making the diagram
 $$
 \begin{tikzcd}
-\spec K \arrow[r] \arrow[d, hookrightarrow] & X \arrow[d] \\ \spec K \arrow[r] \arrow[ur, dotted] & Y
+\spec K \arrow[r] \arrow[d, hookrightarrow] & X \arrow[d] \\ \spec R \arrow[r] \arrow[ur, dotted] & Y
 \end{tikzcd}
 $$
 commute.
 \end{theorem}
+
+\begin{proof}
+\begin{itemize}
+\item
+Let $U \ceq \spec K$ and $T \ceq \spec R$.
+
+If $f$ is proper, it's separated so by the valuative criterion for separatedness it suffices to show that for every valuation ring $R$ with $K \ceq \Frac\prs{R}$ and solid commutative diagram as follows there exists a dotted morphism $\psi$ such that the diagram commutes.
+\[
+\begin{tikzcd}
+U \arrow[r] \arrow[d] & X \arrow[d,"t"] \\ T \arrow[r] \arrow[ur, dotted,"\psi"] & Y
+\end{tikzcd}
+\]
+Let $X_T \ceq X \times_Y T$, let $f' \colon X_T \to T$ correspond to $f$ and let $t_1 \in U$. We have a morphism $\phi \colon U \to X_T$ by the universal property. Let $x_1 = \phi\prs{t_1}$. We have $Z \ceq \overline{\set{x_1}} \stackrel{\text{closed}}{\rmono} X_T$ and that $Z$ is integral. $f$ is proper so $f'$ is closed. Hence $f'\prs{Z}$ is closed in $T$ and contains the generic point, hence $f'\prs{Z} = T$.
+Hence there's $x_0 \in X_T$ such that $f'\prs{x_0} = t_0$ where $t_0$ is the unique closed point of $T$ (corresponding to the maximal ideal).
+
+$Z$ is integral with function field $k\prs{x_1} \rmono K$. We get that the morphism
+\begin{align*}
+Z &\to T \\
+R &\xrightarrow{\substack{\text{local} \\ \text{homo.}}} \OOO_{Z, x_0}
+\end{align*}
+can be post-composed to get a morphism to $k\prs{x_1}$ and then to $K$.
+Hence $\OOO_{Z,x_0}$ dominated $R$.
+Because $R$ is a valuation ring, it's maximal with respect to domination, hence the map $R \to \OOO_{Z,x_0}$ is an isomorphism.
+
+Define
+\begin{align*}
+T &\to Z \\
+t_i &\mapsto x_i \\
+\OOO_{Z,x_0} &\to X \text{.}
+\end{align*}
+We get a map $\spec R = T \to \spec\OOO_{Z,x_0} \to Z \text{.}$
+We post compose to get \[\psi \colon T \to Z \to \rmono X_T \to X \text{.}\]
+\item Conversely, suppose there's a unique $\psi$ in all cases. We need to show $f$ is universally closed.
+Let $Y' \in \Sch\prs{Y}$ and view the following commutative diagram.
+\[
+\begin{tikzcd}
+X' \arrow[r, "f'"] \arrow[d] & Y' \arrow[d] \\
+X \arrow[r, "f"] & Y
+\end{tikzcd}
+\]
+Let $Z \subseteq X'$ closed. $f$ is of finite type hence by an exercise in Hartshorne II.3, $f'$ is of finite type. Then $\rest{f'}{Z}$ is of finite type (since closed immersions are of finite type and compositions of finite type morphisms are of finite type).
+Hence $\rest{f'}{Z}$ is quasi-compact.
+
+By \ref{lemma:valuative_for_properness}, $f'\prs{Z}$ is then closed iff it's stable under specialisation.
+Let $z_1 \in Z$ and $y_1 = f'\prs{Z}$. Suppose $y_1 \rightsquigarrow y_0$ ($y_1$ specialises to $y_1$).
+Let $\OOO$ be the local ring of $y_0$ in $\overline{\set{y_1}}$.
+Hence \[\Frac\prs{\OOO} = k\prs{y_1} \subseteq k\prs{z_1} \coloneqq K \text{.}\]
+Let $R$ be a valuation ring in $K$ dominating $\OOO$.
+Let $U \ceq \spec K$ and $T \ceq \spec R$. We get the following commutative diagram.
+\[
+\begin{tikzcd}
+U \arrow[r] \arrow[d, hookrightarrow] & Z \arrow[d] \arrow[r, hookrightarrow] & X' \arrow[dl, "f'"] \arrow[r] & X \arrow[d, "f"] \\
+T \arrow[r] & Y' \arrow[rr] & & Y
+\end{tikzcd}
+\]
+We get an induced map $T \to X$ and we want to show this factors through $Z$. This is true because $Z$ is closed and because closed points of $T$ are in the closure of the generic point which is in $K$.
+
+Set $z_0 = \psi\prs{t_0}$. We get $f'\prs{z_0} = y_0$. Hence $f\prs{Z}$ is stable under specialisation. By \ref{lemma:valuative_for_properness} then $f'\prs{Z}$ is closed so $f'$ is closed so $f$ is universally closed.
+
+Hence $f$ is proper.
+\end{itemize}
+\end{proof}
 
 \begin{corollary}
 Assume $f \colon X \to Y$ under suitable Noetherian hypothesis on $X,Y$.
@@ -1758,9 +1848,93 @@ $$\mrm{Proj} S \rmono \mrm{Proj} S' = \PP_A^n \to \spec A \text{.}$$
 A Projective morphism of Noetherian schemes is proper.
 \end{theorem}
 
+\begin{proof}
+Let $f \colon X \to Y$ a projection morphism of Noetherian schemes. We can factor $f \colon X \rmono \PP_Y^n \to Y$ where $\PP_Y^n = \PP_\ZZ^n \times_{\spec \ZZ} Y$.
+It's neough to show $\PP_\ZZ^n \to \spec \ZZ$ is proper, which then implies that the base change is proper. Because $X \rmono \PP_Y^n$ is proper this gives the result.
+
+Write \[\PP_\ZZ^n = \bigcup_{i = 0}^n D^+\prs{x_i} = \bigcup_{i = 0}^n V_i\]
+where $V_i \cong \spec \ZZ\brs{\frac{x_0}{x_i}, \ldots, \frac{x_n}{x_i}}$.
+Hence $\PP_\ZZ^n \to \spec \ZZ$ is of finite type.
+
+We have to show that for every diagram
+\[
+\begin{tikzcd}
+\spec K = U \arrow[d, hookrightarrow] \arrow[r] & X = \PP_\ZZ^n \arrow[d] \\
+\spec R = T \arrow[r] \arrow[ur, dotted, "\psi"] & \spec \ZZ
+\end{tikzcd}
+\]
+of solid arrows there's a unique $\psi$, where $R \subseteq K$ is a valuation ring.
+
+Let $u_1 \in U$ and $p_1$ its image. We may assume by induction $p_1 \notin X \setminus V_i \cong \PP_\ZZ^{n-1}$. Then $\frac{x_i}{x_j}$ are invertible in $\OOO_{X, p_1}$.
+
+We have $k\prs{p_1} \subseteq K$. Write $f_{i,j}$ to be the image of $\frac{x_i}{x_j}$ in $K$. Let $v \colon K^\times \to G$ be a valuations and let $g_i \ceq v_i\prs{f_{i,0}}$ for $i \in \set{0, \ldots, n}$.
+Let $g_r$ be minimal.
+Then $v\prs{f_{i,r}} = g_i - g_r$ because $f_{i,m} = f_{i,j} f_{j,m}$.
+Then $v\prs{f_{i,r}} \geq 0$. So, define
+\begin{align*}
+\phi \colon \ZZ\brs{\frac{x_0}{x_r}, \ldots, \frac{x_n}{x_r}} &\to R\\
+\frac{x_i}{x_r} &\mapsto f_{i,r} \text{.}
+\end{align*}
+This gives a map $T \to V_r \rmono \PP_\ZZ^n$ which we call $\psi$.
+\end{proof}
+
+\begin{definition}[Variety]
+A \stress{variety} is an integral separated scheme $X$ of finite type over a field $\spec k$ where $k = \bar{k}$.
+\end{definition}
+
 \begin{remark}
-Our definition of projectivity is not the most flexible.
+Usually, one omits the requirement $k = \bar{k}$ but requires that $X$ is \emph{geometrically integral} which we don't define now.
 \end{remark}
+
+\begin{proposition}
+Let $k = \bar{k}$. Recall the functor $t$ from classical algebraic varieties to $\Sch_k$.
+
+The image of $t$ is the set of quasi-projective integral schemes over $k$ (in our new terminology, quasi-projective varieties over $k$).
+
+Moreover, if $V$ is projective then so is $t\prs{V} \to \spec k$ is projective.
+\end{proposition}
+
+\chapter{Sheaves of Modules}
+
+Let $\prs{X, \OOO_X}$ be a ringed space.
+
+\begin{definition}[$\OOO_X$-Module]
+An $\OOO_X$-module is a sheaf $\FFF$ on $X$ of abelian groups such that for every open sets $U \subseteq X$ and $V \subseteq X$:
+\begin{enumerate}
+\item $\FFF\prs{U}$ is an $\OOO_X\prs{U}$-module in the sense that we're given a map
+\[\OOO_X\prs{U} \times \FFF\prs{U} \to \FFF\prs{U}\]
+for each $U$.
+\item The morphism $\FFF\prs{U} \to \FFF\prs{V}$ is a morphism of $\OOO_X\prs{U}$-modules.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Morphism of $\OOO_X$-Modules]
+A \stress{morphism $f \colon \FFF \to \GGG$ of $\OOO_X$-modules} is a morphism of sheaves such that each $f_U \colon \FFF\prs{U} \to \GGG\prs{U}$ is $\OOO_X\prs{U}$-linear.
+\end{definition}
+
+\begin{lemma}
+If $F$ is a presheaf of abelian groups satisfying conditions 1,2 above then $F^+$ naturally carries a structure of $\OOO_X$-modules.
+\end{lemma}
+
+\begin{proof}
+We need to define a dotted map in the following diagram
+\[
+\begin{tikzcd}
+\OOO_X \times \FFF \arrow[r] \arrow[d] & \FFF \arrow[d] \\
+\OOO_X \times \FFF^+ \arrow[r,dotted] & \FFF^+
+\end{tikzcd}
+\]
+where the sheaves are considered as sheaves of sets.
+This is given by the fact that sheafification commutes with direct products and by the universal property of sheafification.
+One can check that this map satisfies the desired axioms.
+\end{proof}
+
+\begin{fact}
+\begin{enumerate}
+\item If $f \colon \FFF \to \GGG$ is a morphism of $\OOO_X$-modules then so are $\ker\prs{f}, \coker\prs{f}, \im\prs{f}$.
+\item 
+\end{enumerate}
+\end{fact}
 
 \backmatter
 \end{document}
