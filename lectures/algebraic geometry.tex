@@ -1932,9 +1932,187 @@ One can check that this map satisfies the desired axioms.
 \begin{fact}
 \begin{enumerate}
 \item If $f \colon \FFF \to \GGG$ is a morphism of $\OOO_X$-modules then so are $\ker\prs{f}, \coker\prs{f}, \im\prs{f}$.
-\item 
+\item %TODO continue
 \end{enumerate}
 \end{fact}
+
+%7.5.20202
+
+%TODO fill in beginning of lecture
+
+\begin{definition}[Invertible Sheaf]
+A locally free sheaf of rank $1$ is called \stress{an invertible sheaf (alt. ``line bundle'')}.
+\end{definition}
+
+\begin{remark}
+The reason that it's called an invertible sheaf is that $\FFF \tensor \abhom\prs{\FFF,\OOO_X} \cong \OOO_X$.
+\end{remark}
+
+\begin{definition}[$\OOO_X$-Submodule]
+An $\OOO_X$-submodule is an $\OOO_X$-module $\FFF$ such that every $\FFF\prs{U}$ is an $\OOO_X\prs{U}$-submodule with the given action.
+
+This is also called a \stress{sheaf of ideals on $X$}.
+\end{definition}
+
+\begin{proposition}
+Let $f \colon \prs{X, \OOO_X} \to \prs{Y, \OOO_Y}$ be a morphism of ringed spaces and let $\FFF \in \OOO_X\Mod$ (the category of $\OOO_X$-modules).
+
+Then $f_*\FFF$ is an $f_* \OOO_X$-module.
+\end{proposition}
+
+\begin{proof}
+We have $\prs{f_* \FFF}\prs{U} = \FFF\prs{f^{-1}\prs{U}}$ which is a module over $\OOO_X\prs{f^{-1}\prs{U}} = \prs{f_*\OOO_X}\prs{U}$.
+But, $f_* \OOO_X$ is an $\OOO_Y$-module via
+\[f^{\#} \colon \OOO_Y \to f_* \OOO_X \text{.}\]
+So, $f_* \FFF$ is an $\OOO_Y$-module in a natural way.
+\end{proof}
+
+\begin{proposition}
+Let $f \colon \prs{X, \OOO_X} \to \prs{Y, \OOO_Y}$ be a morphism of ringed spaces and let $\GGG \in \OOO_Y\Mod$.
+
+Then $f^{-1}\GGG$ is an $f^{-1} \OOO_Y$-module.
+\end{proposition}
+
+\begin{proof}
+$\prs{f^{-1}\GGG}\prs{U} \cong \lim_{V \supseteq f\prs{U}} G\prs{V}$ is a module over $\lim_{V \supseteq f\prs{U} \OOO_Y\prs{V}} \cong \prs{f^{-1}\OOO_Y}\prs{U}$.
+
+Adjunction applied to $f^\#$ gives $f^{-1}\OOO_Y \to \OOO_X$.
+Set $f^* \GGG \ceq f^{-1}G \tensor_{f^{-1}\OOO_Y} \OOO_X$.
+\end{proof}
+
+
+\begin{remark}
+If $f$ is an open immersion of schemes $f \colon U \rmono X$ then $f^* \GGG \cong \rest{\GGG}{U}$.
+\end{remark}
+
+\begin{fact}
+There's a natural isomorphism of groups
+\[\abhom_{\OOO_X}\prs{f^* \GGG, \FFF} \cong \abhom_{\OOO_Y}\prs{G, f_*\FFF} \text{.}\]
+\end{fact}
+
+\begin{definition}
+Let $A \in \Ring$ and $M \in \A\Mod$. Let $\tilde{M}$ be the sheaf on $\spec A$:
+\[\tilde{M}\prs{U} = \set{s \colon U \to \coprod_{\pp \in \spec A} M_\pp}{\substack{s\prs{\pp} \in M_\pp \\ \star}}\]
+where $\star$ is the property that for all $\pp \in U$ there's a neighbourhood $V \subseteq U$ of $\pp$ and there are $m \in M, f \in A$ such that for all $\qq \in V$ it holds that $f \notin \qq$ and $s\prs{\qq} = \frac{m}{f} \in M_\qq$.
+\end{definition}
+
+\begin{proposition}
+Let $X \ceq \spec A$.
+\begin{enumerate}
+\item $\tilde{M}$ is an $\OOO_X$-module.
+\item $\prs{\tilde{M}}_\pp \cong M_\pp$ as $A_\pp$-modules for every $\pp \in X$.
+\item $\tilde{M}\prs{D\prs{f}} \cong M_f$ as $A_f$-modules, for every $f \in A$, where $D\prs{f}$ is the basic open in $X$.
+\item $\tilde{M}\prs{X} \cong M$.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+\begin{align*}
+A\Mod &\to \OOO_{\spec A}\Mod
+M &\mapsto \tilde{M}
+\end{align*}
+is a functor.
+\end{remark}
+
+\begin{proposition}
+\begin{enumerate}
+\item The functor $M \to \tilde{M}$ is exact and fully-faithful.
+\item $\prs{M \tensor_A N}^\sim \cong \tilde{M} \tensor_{\OOO_X} \tilde{N}$.
+\item $\prs{\bigoplus_{i \in I} M_i}^{\sim} \cong \bigoplus_{i \in I} \tilde{M}_i$.
+\item Let $\phi \colon A \to B$ a ring morphism and let $N \in B\Mod$. Let $f \colon \spec B \to \spec A$ the induced map on spectra.
+Then $f_* \tilde{N} \cong \widetilde{\prs{_{A}N}}$ where ${}_A N$ is $N$ thought of as an $A$-module.
+\item If $M \in A\Mod$ then $f^*\tilde{M} \cong \widetilde{\prs{M \tensor_A B}}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item
+\begin{description}
+\item[Fully-faithfulness:]
+We want to show $\hom_A\prs{M,N} \to \hom_{\OOO_X}\prs{\tilde{M},\tilde{N}}$ is bijective. The inverse map is taking global sections.
+\item[Exactness:]
+Let \[0 \to M' \to M \to M'' \to 0\]
+be exact. We want to show that the induced sequence
+\[0 \to \tilde{M}' \to \tilde{M} \to \tilde{M}'' \to 0\]
+is exact.
+We can check this on stalks which gives the result.
+\end{description}
+\item We have a natural map
+\[\prs{M \tensor_A N}^{\sim} \to \tilde{M} \tensor_{\OOO_X} \tilde{N}\]
+by extending linearly.
+We have to show this is an isomorphism on the stalks. Because localisation commutes with tensor products we get
+\[\prs{M \tensor_A N}_{\pp} \cong M_\pp \tensor_{A_\pp} N_\pp\]
+so the natural map is an isomorphism on stalks, and is therefore an isomorphism.
+
+\item
+Exercise.
+\item
+Exercise.
+\item
+Exercise.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}[Quasi-Coherent $\OOO_X$-Module]
+Let $X \in \Sch$ and $\FFF \in \OOO_X\Mod$. Then $\FFF$ is called \stress{quasi-coherent} if there's an open affine cover $\prs{U_i}_{i \in I}$ with $U_i \cong \spec A_i$ of $X$ such that $\rest{\FFF}{U_i} \cong \tilde{M}_i$ for some $A_i$-module $M_i$, for all $i \in I$.
+\end{definition}
+
+\begin{definition}[Coherent $\OOO_X$-Module]
+A quasi-coherent $\OOO_X$-module $\FFF$ is \stress{coherent} if the $M_i$ cacn be taken to be finite $A_i$-modules.
+\end{definition}
+
+\begin{remark}
+$\OOO_X$ is coherent for every $X \in \Sch$.
+\end{remark}
+
+\begin{example}
+Let $X = \spec A$ and $Y \subseteq X$ a closed subscheme defined by $I \ideal A$. Then
+\[i_* \OOO_Y \cong \widetilde{\prs{\quot{A}{I}}}\]
+where we think of $\quot{A}{I}$ as an $A$-module.
+
+This is coherent.
+\end{example}
+
+\begin{definition}[Quasi-Coherent Sheaf]
+A quasi-coherent sheaf on $X$ is a quasi-coherent $\OOO_X$-module.
+\end{definition}
+
+\begin{notation}
+Denote by $\catname{Qcoh}\prs{X}$ the category of quasi-coherent sheaves on $X$.
+\end{notation}
+
+\begin{lemma}
+Let $X = \spec A$, $f \in A$, $D\prs{f} \subseteq X$ and $\FFF \in \catname{Qcoh}\prs{X}$.
+\begin{enumerate}
+\item If $s \in \Gamma\prs{X,\FFF}$ is such that $\rest{s}{D\prs{f}} = 0$ then $f^n s = 0$ for some $n > 0$.
+\item If $t \in \FFF\prs{D\prs{f}}$ then for some $n>0$, $f^n t$ extends to a global section in $\Gamma\prs{X, \FFF}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Cover $X$ with over affine $\prs{V_i}_{i \in I}$ such that $V_i \cong \spec B_i$ and $\rest{\FFF}{V_i} \cong \tilde{M}_i$ for $M$ a $B_i$-module.
+
+For every $g \in A$ such that $D\prs{g} \subseteq V_i$, and call $\iota \colon D\prs{g} \rmono V_i$ the inclusion. We get a morphism $B_i \to A_g$.
+So \[\rest{\FFF}{D\prs{g}} = \rest{\prs{\rest{\FFF}{V_i}}}{{D\prs{g}}} = \rest{\tilde{M_i}}{D\prs{g}} = \iota^*\tilde{M} = \prs{M \tensor_B A_g} \text{.}\]
+Hence there's an open affine cover $\prs{D\prs{g_i}}_{i \in I'}$ of $X$ which is and such that $\rest{\FFF}{D\prs{g_i}} \cong \tilde{M}_i$ and $M_i$ is a $A_{g_i}$-module. We can take $I'$ to be finite because $X$ is affine and therefore quasi-compact.
+
+\begin{enumerate}
+\item If $s \in \Gamma\prs{X,\FFF}$ with $\rest{s}{D\prs{f}} = 0$, let $s_i \ceq \rest{s}{D\prs{g_i}} \in \tilde{M}_i \prs{D\prs{g_i}} \cong M_i$.
+Then
+\[D\prs{f} \cap D\prs{g_i} = D\prs{f g_i}\]
+so
+\[\rest{\FFF}{D\prs{f g_i}} = \rest{\tilde{M}_i}{D\prs{f g_i}} \cong \prs{\tilde{M}_i}_f \text{.}\]
+Hence $s_i = 0 \in \prs{M_i}_f$. Hence $f^n s_i = 0$ for some $n \in \NN_+$. Because $I'$ is finite we get the result by taking the maximal power.
+
+\item Given $t \in \FFF\prs{D\prs{f}}$ let $\tilde{t}_i \in \FFF\prs{D\prs{f g_i}} \cong \prs{M_i}_f$ the restriction of $t$.
+Then there are $t_i \in M_i$ such that $t_i = f^n \tilde{t}_i$. Then the $t_i$ agree on the double intersections $D\prs{f g_i g_j}$.
+Then $f^m \prs{t_i - t_j} = 0$ on $D\prs{g_i g_j}$ by part 1.
+Hence $f^m t_i$ glue to a section $s \in \FFF\prs{X}$ such that \[\rest{s}{D\prs{f}} = f^m \set{t_i} = f^{m+n} t\]
+where $\set{t_i}$ is the gluing of the $t_i$'s.
+\end{enumerate}
+\end{proof}
+
 
 \backmatter
 \end{document}
