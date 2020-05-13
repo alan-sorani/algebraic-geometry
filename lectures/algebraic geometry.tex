@@ -2008,7 +2008,7 @@ Let $X \ceq \spec A$.
 
 \begin{remark}
 \begin{align*}
-A\Mod &\to \OOO_{\spec A}\Mod
+A\Mod &\to \OOO_{\spec A}\Mod \\
 M &\mapsto \tilde{M}
 \end{align*}
 is a functor.
@@ -2082,7 +2082,7 @@ A quasi-coherent sheaf on $X$ is a quasi-coherent $\OOO_X$-module.
 Denote by $\catname{Qcoh}\prs{X}$ the category of quasi-coherent sheaves on $X$.
 \end{notation}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:quasi-coherent}
 Let $X = \spec A$, $f \in A$, $D\prs{f} \subseteq X$ and $\FFF \in \catname{Qcoh}\prs{X}$.
 \begin{enumerate}
 \item If $s \in \Gamma\prs{X,\FFF}$ is such that $\rest{s}{D\prs{f}} = 0$ then $f^n s = 0$ for some $n > 0$.
@@ -2113,6 +2113,77 @@ where $\set{t_i}$ is the gluing of the $t_i$'s.
 \end{enumerate}
 \end{proof}
 
+%13.5.2020
+
+\begin{proposition}
+Let $X \in \Sch$ and let $\FFF \in \OOO_X\Mod$. Then:
+\begin{enumerate}
+\item $\FFF$ is quasi-coherent iff for all $U \subseteq X$ open affine there exists $M \in A\Mod$ such that $\rest{\FFF}{U} \cong \tilde{M}$.
+\item Assume $X$ is Noetherian. $\FFF$ is coherent iff for all $U \subseteq X$ open affine there exists $M \in A\Mod^{\mrm{fg}}$ such that $\rest{\FFF}{U} \cong \tilde{M}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item Assume $\FFF$ is quasi-coherent and let $U \subseteq X$ open and isomorphic to $\spec A$. Then $\rest{\FFF}{U}$ is quasi-coherent because we can intersect a covering of $X$ with $U$ to get an appropriate cover. We can therefore assume by replacing $X$ with $U$ that $X$ is affine with $\spec A$.
+
+Let $M = \Gamma\prs{X, \FFF}$, we want to show $\FFF \cong \tilde{M}$.
+We have $\alpha \colon \tilde{M} \to \FFF$ from the universal property of the sheafification.
+We have that the sections of $\tilde{M}$ at $U$ are $\set{s \colon U \to \coprod_p M_p}{s\prs{p} = \frac{m}{f} \text{ locally}}$.
+We can then send $s$ to $\frac{m}{f}$ in $\FFF\prs{U}$.
+
+Cover $X$ with $D\prs{g_i}$ such that $\rest{\FFF}{D\prs{g_i}} \cong \tilde{M_i}$ where $M_i \in A_{g_i}\Mod$.
+By \ref{lemma:quasi-coherent} we get $\FFF\prs{D\prs{g_i}} \cong M_{g_i}$. Then $M_{g_i} \cong M_i$ because we can recover both as global sections of the same sheaf.
+
+Hence $\alpha$ is an isomorphism over $D\prs{g_i}$ for all $i$, hence it's an isomorphism on every stalk and hence an isomorphism.
+
+\item Assume $\FFF$ is coherent and reduce similarly to the case where $\FFF$ is affine. It's then also quasi-coherent so by the above $\FFF \cong \tilde{M}$ where $M \in A\Mod$. There are $\prs{g_i}_{i \in [n]}$ which generate $A$ such that $M_{g_i}$ are finitely-generated $A_{g_i}$-modules.
+Then $M_{g_i}$ are Noetherian hence so is $M$ (via the same proof as for rings).
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Let $X \in \Sch$ affine and let
+\[0 \to \FFF' \to \FFF \to \FFF'' \to 0\]
+be an exact sequence of $\OOO_X$-modules. Assume $\FFF' \in \catname{Qcoh}\prs{X}$. Then
+\[0 \to \Gamma\prs{X,\FFF'} \to \Gamma\prs{X,\FFF} \to \Gamma\prs{X,\FFF''} \to 0\]
+is exact.
+\end{proposition}
+
+\begin{proof}
+By an exercise from Hartshorne, $\Gamma\prs{X,-}$ is left exact.
+Hence it's enough to show that $\tilde{\beta} \colon \Gamma\prs{X,\FFF} \to \Gamma\prs{X,\FFF''}$ is surjective.
+
+Let $s \in \Gamma\prs{X,\FFF''}$.
+Let $x \in X$, there's $D\prs{f}$ containing $x$ such that $\rest{s}{D\prs{f}} = \beta\prs{t_x}$ for some $t_x \in \FFF\prs{D\prs{g_i}}$.
+
+\begin{claim}
+$f^n s$ lifts to $\FFF\prs{X}$ for some $n > 0$.
+\end{claim}
+
+\begin{proof}
+Cover $X$ with $D\prs{g_i}$ such that $\rest{s}{D\prs{g_i}} = \beta\prs{t_i}$ with $t_i \in \FFF\prs{D\prs{g_i}}$.
+
+On $D\prs{f} \cap D\prs{g_i} = D\prs{f g_i}$ we have that $t_x, t_i$ both map under $\beta$ to $s$. Hence $t_x - t_i \in \ker \beta \prs{D \prs{f g_i}}$ so $t_x - t_i \in \FFF'\prs{D\prs{f _i}}$.
+By \ref{lemma:quasi-coherent} there's $n \in \NN$ such that $f^n \prs{t_x - t_i}$ extends to $u_i \in \FFF'\prs{D\prs{g_i}}$. There are finitely many indices $i$ so choose $n$ big enough for all of them.
+
+Let $t_i' \ceq f^n t_i + u_i$. Then $\beta\prs{t_i'} = \beta\prs{f^n t_x} = f^n s$ on $D\prs{g_i}$.
+Also $t_i' = f^n t_x$ on $D\prs{f g_i}$.
+
+So on $D\prs{g_i g_j}$ we have that $t_i', t_j'$ both lift to $f^n s$. Then $t_i' - t_j' \in \FFF'\prs{D\prs{g_i g_j}}$ so the different is $0$ on $D\prs{f g_i g_j}$.
+By \ref{lemma:quasi-coherent}, $f^m \prs{t_i' - t_j'} = 0$ for $m$ large enough, so $\set{f^m t_i'}_{i \in I}$ glue to $t'' \in \FFF\prs{X}$ such that $\beta\prs{t''} = f^{m+n}s \in \FFF''\prs{X}$.
+\end{proof}
+
+Now, cover $X$ with $D\prs{f_i}$. Then $\rest{s}{D\prs{f_i}}$ lift  to $\FFF\prs{D\prs{f_i}}$ and by the claim to $t_i \in \FFF\prs{X}$ such that $\beta\prs{t_i} = f_i^n s$.
+Now
+$\prs{f_1, \ldots, f_k} = A = \prs{f_i^n, \ldots, f_k^n}$ so $1 = \sum_{i} a_i f_i^n$ for some $a_i \in A$. Let $t = \sum a_i t_i \in \FFF\prs{X}$.
+Then
+\[\beta\prs{t} = \sum a_i \beta\prs{t_i} = \sum a_i f_i^n s = s \sum a_i f_i^n = s \text{.}\]
+\end{proof}
+
+\begin{proposition}
+
+\end{proposition}
 
 \backmatter
 \end{document}
