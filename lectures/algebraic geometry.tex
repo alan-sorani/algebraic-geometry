@@ -2182,8 +2182,102 @@ Then
 \end{proof}
 
 \begin{proposition}
-
+Let $X \in \Sch$.
+\begin{enumerate}
+\item Kernels, cokernels and images exist in $\catname{Qcoh}\prs{X}$.
+\item Any extension of quasi-coherent sheaves is quasi-coherent. I.e. if the outer sheaves in a short exact sequence are quasi-coherent, so is the middle one.
+\item If $X$ is Noetherian, 1,2 hold in $\catname{Coh}$.
+\end{enumerate}
 \end{proposition}
 
+\begin{proof}
+It's enough to assume $X$ is affine.
+\begin{enumerate}
+\item %1
+Take the following exact sequence $0 \to \FFF' \to \FFF \to \FFF''$ where $\FFF,\FFF''$ are quasi-coherent. Write $\FFF \cong \tilde{M}$ and $\FFF \cong \tilde{M''}$.
+The morphism $M \to M''$ has a kernel $M'$ so that $0 \to M' \to M \to M''$ is exact. By exactness of $\tilde{\phantom{F}}$ we get that $0 \to \tilde{M'} \to \tilde{M} \to \tilde{M''}$ is exact, so by fully-faithfulness $\FFF' \cong \tilde{M'}$.
+\item %2
+Suppose we have a short exact sequence
+$0 \to \FFF' \to \FFF \to \FFF'' \to 0$ where $\FFF' \cong \tilde{M'}$ and $\FFF'' \cong \tilde{M''}$.
+Taking global sections we get
+\[0 \to M' \to M \to M'' \to 0\]
+which is exact by the above proposition.
+Then
+\[0 \to \FFF' \to \tilde{M} \to \FFF'' \to 0\]
+is exact. We have a functorial morphism $\alpha \colon \tilde{M} \to \FFF$. $\alpha$ on $\FFF', \FFF''$ is an isomorphism, so we have a diagram
+\[
+\begin{tikzcd}
+0 \arrow[r] & \FFF' \arrow[r] \arrow[d] & \tilde{M} \arrow[d, "\alpha"] \arrow[r] & \FFF' \arrow[r] \arrow[d] & 0 \\
+0 \arrow[r] & \FFF' \arrow[r]& \FFF \arrow[r] & \FFF'' \arrow[r] & 0
+\end{tikzcd}
+\]
+where the vertical morphisms on the sides are isomorphisms. Then by the 5-lemma $\alpha$ is an isomorphism. Hence $\FFF$ is quasi-coherent.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+Let $f \colon X \to Y$ in $\Sch$.
+\begin{enumerate}
+\item If $\GGG \in \catname{Qcoh}\prs{Y}$ then $f^* \GGG \in \catname{Qcoh}\prs{X}$.
+
+\item If $X,Y$ are Noetherian and $\GGG \in \catname{Coh}\prs{Y}$ then $f^* \GGG \in \catname{Coh}\prs{X}$.
+
+\item If either $X$ is Noetherian or $f$ is quasi-compact and separated then if $\FFF \in \catname{Qcoh}\prs{X}$ then $f_* \FFF \in \catname{Qcoh}\prs{Y}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+Part 3 of the proposition fails badly for $\catname{Coh}\prs{X}$. For example, take $\spec k\brs{x} \to \spec k$.
+\end{remark}
+
+\begin{proof}
+For 1,2 we reduce to the case where $X,Y$ are affine:
+Take $U \subseteq Y$ open affine and examine $f^{-1}\prs{U}$. This can be covered by affines. Now $\rest{f^* \GGG}{V} = \prs{\rest{f}{V}}^* \rest{\GGG}{U}$.
+
+\begin{enumerate}
+\item We have $\GGG \cong \tilde{M}$ and $f^* \GGG \cong \prs{M \tensor_A B}^{\sim} \in \catname{Qcoh}\prs{X}$.
+\item Similarly, where $M$ is finitely-generated over $A$ and hence over $B$ by Noetherianity of both.
+\item We have $\rest{\prs{f_* \FFF}}{U} \cong f_* \prs{\rest{\FFF}{f^{-1}\prs{U}}}$ for $U \subseteq Y$. Cover $X$ with open affines $\prs{U_i}_{i \in [n]}$.
+
+\begin{itemize}
+\item If $f$ is separated, $U_i \cap U_j$ is affine (exercise 4.3).
+
+\item If $X$ is Noetherian, we can cover $U_i \cap U_j$ with finitely many open affines $U_{i,j,k}$.
+\end{itemize}
+
+By the sheaf property we get the following exact sequence, where the last map is the identity if $i$ appears in the first coordinate or minus the identity if it's on the second one.
+
+\[0 \to f_* \FFF \to \bigoplus_{i \in [n]} f_* \prs{\rest{\FFF}{U_i}} \to \bigoplus_{i,j,k} f_* \prs{\rest{\FFF}{U_{i,j,k}}}\]
+The direct sums are quasi-coherent because $U_i$ are affine, so $f_* \FFF$ is quasi-coherent as the kernel of the morphism of quasi-coherent schemes.
+\end{enumerate}
+\end{proof}
+
+\subsection{Ideal Sheaves}
+
+Let $i \colon Y \rmono X$ be a closed subscheme. The \stress{ideal sheaf} $\III_Y$ of $Y$ is $\ker\prs{\OOO_X \repi i_* \OOO_Y}$. We have an exact sequence
+\[0 \to \III_Y \to \OOO_X \to i_*\OOO_Y \to 0 \text{.}\]
+
+\begin{proposition}
+\begin{enumerate}
+\item $\III_Y$ is quasi-coherent.
+\item Any quasi-coherent sheaf of ideals on $X$ arises from some $Y$ in the above sense.
+\item If $X$ is Noetherian, $\III_Y$ is coherent.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item
+We know $\OOO_X$ is quasi-coherent, hence by the exact sequence we may prove $i_* \OOO_Y$ is quasi-coherent. Because $i$ is a closed immersion, it's quasi-compact and separated (e.g. in the Noetherian case, this follows from the valuative criterion).
+Then by the previous proposition $i_* \OOO_Y$ is quasi-coherent from which we get the result as stated.
+\item Let $\III$ be a quasi-coherent sheaf of ideals of $\OOO_X$. Take \[Y = \supp\prs{\quot{\OOO_X}{\III}} = \set{y \in X}{\prs{\quot{\OOO_X}{\III}}_y \neq 0} \text{.}\]
+Locally, $\III_{U_i}$ is quasi-coherent sheaf of ideals on $\spec A_i \cong U_i$. So it's of the form $\tilde{\aa_i}$ for some $\aa_i \ideal A$.
+Hence $\prs{V\prs{\aa_i}, \quot{A_i}{\aa_i}}$ is a closed subscheme of $U_i$ and these glue to give $\prs{Y, \quot{\OOO_Y}{\III}} \rmono X$.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+If $X =\spec A$ then there's a bijection between ideals $I \ideal A$ and closed subschemes $Y \rmono X$ which sends $I$ to $\spec \quot{A}{I}$.
+\end{corollary}
 \backmatter
 \end{document}
