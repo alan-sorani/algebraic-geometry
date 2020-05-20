@@ -1,10 +1,11 @@
-\contentsline {chapter}{Preface}{iii}{chapter*.3}% 
-\contentsline {section}{Technicalities}{iii}{section*.4}% 
-\contentsline {chapter}{\numberline {1}Sheaves}{2}{chapter.1}% 
-\contentsline {chapter}{\numberline {2}Schemes}{8}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Motivation}{8}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Schemes - Basic Definitions}{8}{section.2.2}% 
-\contentsline {subsection}{\numberline {2.2.1}Properties of Schemes:}{16}{subsection.2.2.1}% 
-\contentsline {section}{\numberline {2.3}Valuation Rings}{23}{section.2.3}% 
-\contentsline {chapter}{\numberline {3}Sheaves of Modules}{29}{chapter.3}% 
-\contentsline {subsection}{\numberline {3.0.1}Ideal Sheaves}{34}{subsection.3.0.1}% 
+\contentsline {chapter}{Preface}{iii}{chapter*.3}%
+\contentsline {section}{Technicalities}{iii}{section*.4}%
+\contentsline {chapter}{\numberline {1}Sheaves}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Schemes}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Motivation}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Schemes - Basic Definitions}{7}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Properties of Schemes:}{15}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Valuation Rings}{22}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Sheaves of Modules}{27}{chapter.3}%
+\contentsline {subsection}{\numberline {3.0.1}Ideal Sheaves}{32}{subsection.3.0.1}%
+\contentsline {chapter}{\numberline {4}Divisors}{37}{chapter.4}%
