@@ -2636,5 +2636,189 @@ and
 \[\mm_\eta = \set{\frac{f\prs{x,y,z}}{g\prs{x,y,z}}}{y \mid g\prs{x,y,z}} \text{.}\]
 \end{example}
 
+%21.5.2020
+
+\begin{lemma}
+Let $X$ satisfy $\star$. Let $f \in K\prs{X}^\times$. Then $v_Y\prs{f} = 0$ for all but finitely many prime divisors $Y$ on $X$.
+\end{lemma}
+
+\begin{proof}
+Say $f$ is a germ $\prs{U,f}$ where $U \subseteq X$ is with $U \cong \spec A$ and $Z = X \setminus U$. Because $X$ is Noetherian, there are finitely many prime divisors $Y$ contained in $Z$.
+
+So, let $Y$ be such that $Y \cap U \neq \ns$. Then $Y \cap U$ is a prime divisor in $U$. We have $v_{Y \cap U}\prs{f} = v_Y\prs{f}$.
+Hence $K\prs{X} \cong K\prs{U}$.
+
+%TODO fill in
+\end{proof}
+
+Let $X \in \Sch$ satisfy $\star$ and let $K \ceq K\prs{X}$.
+
+\begin{definition}[Principal Divisor]
+Let $f \in K^\times$, we define \stress{the principal divisor} \[\mrm{div}\prs{f} = \sum_Y v_Y\prs{f} Y \in \mrm{Div} X \text{.}\]
+\end{definition}
+
+\begin{remark}
+The valuation induces a homomorphism
+\begin{align*}
+K^\times &\to \mrm{Div}\prs{X} \\
+f &\mapsto \mrm{div}\prs{f} \text{.}
+\end{align*}
+Specifically, the set of principal divisors is a subgroup of $\mrm{Div}\prs{X}$.
+\end{remark}
+
+\begin{definition}[Linear Equivalence]
+Let $D,D' \in \mrm{Div}\prs{X}$. Write $D \sim D'$ if $D - D' = \mrm{div}\prs{f}$for some $f \in K^\times$.
+In this case say $D,D'$ are \stress{linearly equivalent}.
+\end{definition}
+
+\begin{definition}[Divisor Class Group]
+Define \[\mrm{Cl}\prs{X} \ceq \quot{\mrm{Div}\prs{X}}{\set{\mrm{div}\prs{f}}{f \in K}} \text{.}\]
+This is the \stress{divisor class group of $X$}.
+\end{definition}
+
+\begin{definition}[Normal Scheme]
+A scheme $X$ is \stress{normal} if all local rings $\OOO_{X,x}$ are integrally-closed.
+\end{definition}
+
+\begin{remark}
+If $A$ is a domain, $A$ is integrally-closed iff $\spec A$ is normal.
+Indeed, because $A$ is a domain we can write $A = \bigcap_{\pp \in \spec A} A_\pp \subseteq \Frac\prs{A}$ so if all $A_\pp$ are integrally closed then so are $A$.
+\end{remark}
+
+\begin{lemma}[Matsumura, Thm 38] \label{lemma:matsumura}
+Let $A \in \Ring$ be an integrally-closed Noetherian domain. Then
+$A$ is the intersection of the $A_\pp$ where $\mrm{height}\prs{\pp} = A_\pp$.
+\end{lemma}
+
+\begin{proposition}
+Let $A$ a Noetherina Domain. Then
+$A$ is a UDF iff $X \ceq \spec A$ is normal and $\mrm{Cl}\prs{X} = 0$.
+\end{proposition}
+
+\begin{proof}
+If $A$ is a UFD, it's integrally-closed and then $\spec A$ is normal.
+So it's enough to show that when $A$ is an integrally closed Noetherian domain then
+all height $1$ primes are principal iff $\mrm{Cl}\prs{\spec A} = 0$ (since $A$ is a UFD iff all height $1$ primes are principal).
+
+\begin{description}
+\item[$\implies$:]
+consider $Y \subseteq X$ a prime divisor. We get $Y \cong \spec\prs{\quot{A}{\pp}}$ for some $\pp \in \spec\prs{X}$ of height $1$.
+So $\pp = \prs{f} = fA$ for some $f \in A$.
+Note $Y = \mrm{div}\prs{f}$.
+Then $\brs{Y} = 0$ in $\mrm{Cl}\prs{X}$, so $\mrm{Cl}\prs{X} = 0$.
+
+\item[$\Longleftarrow$:]
+Assume $\mrm{Cl}\prs{X} = 0$ and let $\pp \in \spec\prs{A}$ of height $1$. Then $Y \ceq V\prs{\pp}$ is a prime-divisor. Then $Y = \mrm{div}\prs{f}$ for some $f \in K \ceq \Frac\prs{A}$.
+Then $v_Y\prs{f} = 1$ and $v_{Y'}\prs{f} = 0$ for every prime divisor $Y'$ different from $Y$.
+These imply $f \in A_\pp$ and $f \in A_{\pp'}$ respectively. Hence by \ref{lemma:matsumura} $f \in A$.
+
+$v_Y\prs{f} = 1$ implies also $f \in \pp A_\pp$, so $f \in A \cap \pp A_\pp = \pp$. We want to show $\prs{f} = \pp$. Let $g \in \pp$. We have $v_Y\prs{g} \geq 1$, $v_{Y'}\prs{g} \geq 0$ from which $v_{Y''} \prs{\frac{g}{f}} \geq 0$ for all $Y''$ including $Y$.
+Hence \[\frac{g}{f} \in \bigcap_{\substack{\pp \in \spec A \\ \mrm{height}\prs{\pp} = 1}} A_\pp = A\] so $g \in fA$ so $\pp = fA = \prs{f}$.
+\end{description}
+\end{proof}
+
+\begin{example}
+LEt $X \ceq \AA_k^n$. Then $\mrm{Cl}\prs{X} = 0$ since $k\brs{x_1, \ldots, x_n}$ is a UFD.
+\end{example}
+
+\begin{definition}[Degree of a Divisor in $\PP_k^n$]
+Let $X \ceq \PP_k^n$, any prime divisor $Y \subseteq X$ is of the form $\mrm{Proj}\prs{\quot{k\brs{x_0, \ldots, x_n}}{f}}$ for $f$ homogeneous and irreducible. We define $\deg\prs{Y} = \deg\prs{f}$.
+
+If $D = \sum_{N_y} Y \in \mrm{Div} X$ we define
+\[\deg\prs{D} = \sum n_Y \deg\prs{Y} \in \ZZ \text{.}\]
+\end{definition}
+
+\begin{proposition}
+Let $H = \set{x_0 = 0} \subseteq \PP_k^n$ a hyperplane.
+Let $D \in \mrm{Div} X$.
+\begin{enumerate}
+\item If $\deg D = D$ then $D \sim d H$.
+\item $\deg\prs{\mrm{div} f} = 0$ for all $f \in K \ceq K\prs{\PP_k^n}$.
+\item The group homomorphism
+\begin{align*}
+\mrm{Cl}\prs{\PP_k^n} &\to \ZZ \\
+D &\mapsto \deg\prs{D}
+\end{align*}
+is an isomorphism.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+If $f \in K$ then $f = \frac{g}{h}$ for $g,h$ homogeneous of the same degree.
+Write $g = \prod_{i \in [r]} g_i^{n_i}$ and $h = \prod_{j \in [s]} h_j^{m_j}$ where $g_i, h_j$ are irreducible.
+Then \[\mrm{div}\prs{f} = \sum_{i \in [r]} n_i G_i - \sum_{j \in [s]} m_j H_j\]
+where $G_i \ceq \set{g_i = 0}$ and $H_j \ceq \set{h_j = 0}$. So \[\sum_{i \in [r]} n_i \deg \prs{g_i} - \sum_{j \in [s]} m_j \deg\prs{h_j} = \deg\prs{\mrm{div}\prs{f}} = 0 \text{.}\]
+
+For any $D \in \mrm{Div}\prs{X}$ we can write $D = D_1 - D_2$ where $D_1, D_2$ are effective and $D_i = \mrm{div}\prs{g_i}$ for $g_i \in k\brs{x_0, \ldots, x_n}$.
+Then
+\[D - dH = \mrm{div}\prs{\frac{g_1}{x_0^d g_2}} \sim 0\]
+in $\mrm{Cl}\prs{K}$, so $D \sim dH$.
+\end{proof}
+
+\begin{proposition}
+Let $X \in \Sch$ satisfy $\star$.
+Let $Z \subsetneq X$ closed and let $U \ceq X \setminus Z$.
+
+\begin{enumerate}
+\item There's a surjection
+\begin{align*}
+\mrm{Cl}\prs{X} &\repi \mrm{Cl}\prs{U} \\
+\brs{Y} &\mapsto \fcases{\brs{Y \cap U} & Y \cap U \neq \ns \\
+0 & Y \cap U = \ns} \text{.}
+\end{align*}
+
+\item If $\codim\prs{Z, X} \geq 2$ then the above is an isomorphism.
+
+\item If $Z$ is irreduicble and of codimension $1$ then the sequence
+\[\ZZ \to \mrm{Cl}\prs{X} \to \mrm{Cl}\prs{U} \to 0\]
+is exact.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item Let $K = \prs{X}$. If $f \in K^\times$ then $\mrm{div}\prs{f} = \sum n_i Y_i$. Then $f \in K\prs{X} \cong K\prs{U}$.
+So $\mrm{div}\prs{f_U} = \sum n_i \prs{Y_i \cap U}$ where $n_i$ becomes $0$ if $Y_i \cap U = \ns$.
+
+So, we map $\mrm{Div}\prs{X} \to \mrm{Div}\prs{U}$ which sends principal divisors to principal divisors.
+
+\item The map $\mrm{Div}\prs{X} \to \mrm{Div}\prs{U}$
+is an isomorphism sending principals to principals.
+
+\item The kernel of $\mrm{Cl}\prs{X} \to \mrm{Cl}\prs{U}$ is supported on those $Y$ such that $Y \cap U = \ns$, but since $Z$ is irreducible this is just $Y = Z$.
+\end{enumerate}
+\end{proof}
+
+\begin{example}
+Let $Y \subseteq \PP_k^2$ an irreducible plane curve of degree $d \geq 1$ isomorphic to $\Proj\prs{\quot{k\brs{x,y,z}}{f\prs{x,y,z}}}$.
+
+Then $\mrm{Cl}\prs{\PP_k^2 \setminus Y} \cong \quot{\ZZ}{d\ZZ}$
+by taking
+\[Z \to \mrm{Cl}\PP_k^2 \to \mrm{Cl}\prs{\PP^2 \setminus Y} \to 0 \text{.}\]
+\end{example}
+
+\begin{example}
+Let $A \ceq \quot{k\brs{x,y,z}}{\prs{xy - z^2}}$ and $X = A$ which we think of as embedded in $\AA_k^3$.
+Let $Y = \set{y = z = 0} \subseteq X$. Then $Y \cong \spec k\brs{x}$ is a prime divisor.
+\end{example}
+
+\begin{claim}
+$\mrm{Cl}\prs{X} = \trs{Y} \cong \quot{\ZZ}{2\ZZ}$.
+\end{claim}
+
+\begin{proof}
+We check that $X$ satisfies $\star$. This is implies by showing that $A$ is integrally closed.
+
+We have the exact sequence
+
+\[\ZZ \to \mrm{Cl}\prs{X} \to \mrm{Cl}\prs{X \setminus Y} \to 0\]
+where the first morphism sends $1 \mapsto \brs{Y}$. Note that $\mrm{rad}\prs{y} = \prs{y,z}$.
+We have $X \setminus Y = \spec A_y$. Now \[A_y = \quot{k\brs{x,y,z,y^{-1}}}{\prs{xy - z^2}} \cong k\brs{y, y^{-1}, z}\]
+is a UFD since it's a polynomial ring over $k\brs{y,y^{-1}}$ and $k\brs{y,y^{-1}}$ is a UFD (e.g. by the last proposition).
+Hence $\mrm{Cl}\prs{X \setminus Y} = 0$.
+
+%TODO continue next time
+\end{proof}
+
 \backmatter
 \end{document}
