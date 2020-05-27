@@ -2802,9 +2802,9 @@ Let $A \ceq \quot{k\brs{x,y,z}}{\prs{xy - z^2}}$ and $X = A$ which we think of a
 Let $Y = \set{y = z = 0} \subseteq X$. Then $Y \cong \spec k\brs{x}$ is a prime divisor.
 \end{example}
 
-\begin{claim}
+\begin{proposition}
 $\mrm{Cl}\prs{X} = \trs{Y} \cong \quot{\ZZ}{2\ZZ}$.
-\end{claim}
+\end{proposition}
 
 \begin{proof}
 We check that $X$ satisfies $\star$. This is implies by showing that $A$ is integrally closed.
@@ -2817,8 +2817,90 @@ We have $X \setminus Y = \spec A_y$. Now \[A_y = \quot{k\brs{x,y,z,y^{-1}}}{\prs
 is a UFD since it's a polynomial ring over $k\brs{y,y^{-1}}$ and $k\brs{y,y^{-1}}$ is a UFD (e.g. by the last proposition).
 Hence $\mrm{Cl}\prs{X \setminus Y} = 0$.
 
-%TODO continue next time
+\begin{claim}
+$\div\prs{y} = 2Y$.
+\end{claim}
+
+\begin{proof}
+Let $\pp = \prs{y,z}$. $X$ satisfies $\star$ so $\AA_\pp$ is local with $\pp A_\pp = \prs{z}$ since $y = x^{-1} z^2$.
+
+Now, $v_Y\prs{y} = v_Y\prs{x^{-1} z^2} = 2$.
 \end{proof}
+
+\begin{claim}
+$Y \neq 0$ in $\mrm{Cl}\prs{X}$.
+\end{claim}
+
+\begin{proof}
+Assume $\pp$ is principal and write $\pp = \prs{f} = fA$.
+Let $\mm \ceq \prs{x,y,z}$. Then $\dim_k \quot{\mm}{\mm^2} = 3$ where the quotient is spanned by $\bar{x}, \bar{y}, \bar{z}$. But $y = f a_1, z = f a_2$ so $\quot{\mm}{\mm^2}$ is spanned by $\bar{x}, \bar{f}$, a contradiction to the dimension. Hence $\pp$ is not principal, so $Y$ is not a principal divisor, so $Y \neq 0$ in $\mrm{Cl}\prs{X}$.
+\end{proof}
+
+\end{proof}
+
+\begin{proposition}
+Let $X \in \Sch$ satisfy $\star$.
+Then $\mrm{Cl}\prs{X \times_{\spec \ZZ} \AA^1} \cong \mrm{Cl}\prs{X}$.
+\end{proposition}
+
+\begin{proof}
+\begin{itemize}
+\item We have to verify $\star$ for $X \times \AA^1$.
+Noetherianity is clear. Separatedness is given because a base-extension of a separated map is separated.
+Locally $X \times \AA^1$ is $\spec A\brs{t}$ which is a domain, from which we get integrality.
+
+We want to show $X \times \AA^1$ is regular in codimension $1$.
+Examine the map $\pi \colon X \times \AA^1 \to X$. Let $x \in X \times \AA^1$ with $y \ceq \pi\prs{x}$.
+
+If $\overline{\set{y}}$ has codimension $1$ then $\pi^{-1}\prs{y} = \overline{\set{x}}$. Then $\OOO_x \cong \OOO_y\brs{t}_{\mm_y}$ which is a DVR (we can see this e.g. by extending the valuation on $\OOO_y$ by setting $v\prs{t} = 0$).
+
+If $\overline{\set{y}}$ has codimension $0$ it's $X$. Then $\OOO_y = K\prs{X}$. Then $\OOO_X = K\prs{X}\brs{t}_\pp$ for some prime $\pp \in \spec \prs{K\prs{X}\brs{t}}$. This is a DVR.
+
+\item
+Let $K \ceq K\prs{X}$ and define
+\begin{align*}
+\pi^* \colon \mrm{Cl}\prs{X} &\to \mrm{Cl}\prs{X \times \AA^1} \\
+\sum n_Y Y &\mapsto \sum n_Y \pi^{-1}\prs{Y} \text{.}
+\end{align*}
+If $f \in K\prs{X}^*$ then $\pi^*\prs{\div f} = \div \prs{f}$.
+
+We claim $\pi^*$ is a bijection.
+
+\begin{description}
+\item[Injectivity:]
+Say $\pi^* D = \div f$ for $f \in K\prs{t}$. $\pi^* D$ is supported on type 1 divisors so $f \in K$ so $D = \div \prs{f}$.
+\item[Surjectivity:]
+$\pi^*$ is clearly surjective on type 1 divisors. Say $Z \subseteq X \times \AA^1$ a prime divisor of type 2, we have to show it's linearly equivalent to a formal sum of divisors of type 1. We get a prime divisor in $\spec K\brs{t}$ corresponding to some maximal ideal $\prs{f} \ideal K\brs{t}$.
+
+Now $\div\prs{f} = Z + W$ where $W$ is a sum of divisors of type 1. So $Z$ is supported on type 1 prime divisors, so $\pi^*$ is surjective.
+\end{description}
+\end{itemize}
+\end{proof}
+
+\begin{example}
+Let $X = \set{xy = zw} = \Proj\prs{\quot{k\brs{x,y,z,w}}{\prs{xy - zw}}}$ a quadratic surfcae in $\PP_k^3$. There's an isomorphism
+\begin{align*}
+\PP^1 \times \PP^1 &\riso X \\
+\prs{\prs{r,s},\prs{x,y}} &\mapsto \prs{rx, sy, sx, ry} \text{.}
+\end{align*}
+
+We claim $\mrm{Cl}\prs{X} \cong \ZZ \times \ZZ$.
+Let $p_1, p_2 \colon \PP^1 \times \PP^1 \to \PP^1$ the projections.
+For $i \in [2]$ define
+\begin{align*}
+p_i^* \colon \mrm{Cl}\prs{\PP^1} &\to \mrm{Cl}\prs{X} \text{.}
+\end{align*}
+Then $\brs{*} \in \mrm{Cl}\prs{\PP^1}$ is sent to $\brs{\PP^1 \times \set{*}}$ under $p_1^*$. This is sent to $\brs{\AA^1 \times \set{*}}$ in $\mrm{Cl}\prs{\AA^1 \times \PP^1}$ which is isomorphic to $\mrm{Cl}\prs{\PP^1}$ sending this to $\brs{*}$. Hence $p_1^*$ is injective, and similarly is $p_2^*$.
+
+Let $Y = \set{*} \times \PP^1$ and $U = \AA^1 \times \PP^1$.
+Then
+\[\ZZ \to \mrm{Cl}\prs{X} \to \mrm{Cl}\prs{U} \to 0\]
+is exact. By the above proposition $\mrm{Cl}\prs{U} \cong \mrm{Cl}\prs{\PP^1} \cong \ZZ$. Because the first morphism is injective,
+\[0 \to \ZZ \to \mrm{Cl}\prs{X} \to \mrm{Cl}\prs{U} \to 0\]
+is exact.
+This actually splits so $\mrm{Cl}\prs{X} \cong \im p_1^* \oplus \im p+2^* \cong \ZZ \oplus \ZZ$.
+The explicit generators are $\brs{\set{*} \times \PP^1}$ and $\brs{\PP^1 \times \set{*}}$.
+\end{example}
 
 \backmatter
 \end{document}
